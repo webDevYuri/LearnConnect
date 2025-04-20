@@ -57,11 +57,36 @@
             </div>
             <div class="offcanvas-body d-flex flex-column">
                 <ul class="navbar-nav mb-3">
-                    <li class="nav-item py-1"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item py-1"><a class="nav-link" href="#">Courses</a></li>
-                    <li class="nav-item py-1"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item py-1"><a class="nav-link" href="#">Pricing</a></li>
-                    <li class="nav-item py-1"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item py-1">
+                        <a class="nav-link px-2 @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"
+                           asp-action="Index">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a class="nav-link px-2 @(ViewContext.RouteData.Values["Action"].ToString() == "Courses" ? "active" : "")"
+                           asp-action="Courses">
+                            Courses
+                        </a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a class="nav-link px-2 @(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")"
+                           asp-action="About">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a class="nav-link px-2 @(ViewContext.RouteData.Values["Action"].ToString() == "Pricing" ? "active" : "")"
+                           asp-action="Pricing">
+                            Pricing
+                        </a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a class="nav-link px-2 @(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")"
+                           asp-action="Contact">
+                            Contact
+                        </a>
+                    </li>
                 </ul>
                 <div class="mt-auto">
                     <a class="btn btn-primary w-100 rounded-pill py-2 mb-2" asp-action="Signin" asp-controller="Account">Sign in</a>
@@ -77,21 +102,109 @@
         </main>
     </div>
 
-    <footer class="border-top bg-light py-3 position-fixed bottom-0 w-100">
+    <footer class="bg-light py-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">&copy; 2025 - <span class="fw-medium">LearnConnect</span> - All rights reserved</p>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3"><span class="text-primary">Learn</span>Connect</h5>
+                    <p class="text-muted">
+                        Bringing you quality online courses to help you grow your skills and career.
+                    </p>
                 </div>
-                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
-                    <a href="#" class="text-decoration-none text-muted me-3"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="text-decoration-none text-muted me-3"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="text-decoration-none text-muted me-3"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-decoration-none text-muted"><i class="bi bi-linkedin"></i></a>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Navigation</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a class="nav-link px-2" asp-action="Index">
+                                Home
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="nav-link px-2" asp-action="Courses">
+                                Courses
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="nav-link px-2" asp-action="About">
+                                About
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="nav-link px-2" asp-action="Pricing">
+                                Pricing
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link px-2" asp-action="Contact">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Contact</h6>
+                    <div class="d-flex mb-3">
+                        <div class="me-3 text-primary">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="text-muted">
+                            123 Learning Ave.<br>
+                            Manila, Philippines
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="me-3 text-primary">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div class="text-muted">
+                            info@learnconnect.ph
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="me-3 text-primary">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <div class="text-muted">
+                            +63 912 345 6789
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <a href="#" class="text-primary me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-primary me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-primary me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-primary"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 card-shadow">
+                        <div class="card-body p-4">
+                            <h6 class="fw-bold mb-3">Subscribe to our newsletter</h6>
+                            <p class="text-muted mb-3">Stay updated with our latest courses and offers.</p>
+                            <form>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" placeholder="example143@gmail.com" aria-label="example143@gmail.com">
+                                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted mb-md-0">&copy; 2025 <span class="fw-medium">LearnConnect</span>. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a asp-action="Privacy" class="text-muted me-3 text-decoration-none">Privacy Policy</a>
+                    <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

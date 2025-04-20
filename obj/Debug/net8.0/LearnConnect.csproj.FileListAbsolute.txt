@@ -139,3 +139,4 @@ C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\obj\Debug\net8.0\LearnC
 C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\obj\Debug\net8.0\LearnConnect.genruntimeconfig.cache
 C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\obj\Debug\net8.0\ref\LearnConnect.dll
 C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\obj\Debug\net8.0\scopedcss\Views\Shared\Signin_Signup.cshtml.rz.scp.css
+C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\obj\Debug\net8.0\LearnConnect.sourcelink.json
