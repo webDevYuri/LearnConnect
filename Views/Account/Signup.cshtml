@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "Signin_Signup";
+    ViewData["Title"] = "Sign up";
+}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card border-0 shadow-sm" style="max-width: 400px; width: 100%; border-radius: 1rem;">
+        <div class="card-body p-4 p-md-5">
+            <img src="~/assets/logo/logo.png" class="img-fluid w-50 mx-auto d-block mb-2 rounded-circle shadow-sm" alt="Logo" />
+            <h4 class="text-center mb-4 fw-bold text-secondary">Create Account</h4>
+
+            <form asp-action="Signup" method="post">
+                <div class="position-relative mb-2">
+                    <i class="bi bi-envelope-at position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
+                    <input type="email" class="form-control ps-5" id="email" name="email" placeholder="Email address" required />
+                </div>
+
+                <div class="position-relative mb-2">
+                    <i class="bi bi-lock position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
+                    <input type="password" class="form-control ps-5" id="password" name="password" placeholder="Password" required />
+                </div>
+
+                <div class="position-relative mb-4">
+                    <i class="bi bi-shield-lock position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
+                    <input type="password" class="form-control ps-5" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required />
+                </div>
+
+                <div class="d-grid mb-4">
+                    <button type="submit" class="btn btn-outline-primary btn-lg" style="border-radius: 0.5rem;">Sign up</button>
+                </div>
+
+                <div class="text-center">
+                    <p class="mb-0">Already have an account? <a asp-action="Signin" class="text-primary fw-medium text-decoration-none">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

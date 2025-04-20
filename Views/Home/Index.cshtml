@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="row align-items-center py-4 py-md-5">
+    <div class="col-lg-6 mb-5 mb-lg-0 order-2 order-md-1 mt-5 mt-md-0">
+        <div class="text-center text-lg-start">
+            <h1 class="fw-bold mb-3">Unlock Your Potential with <span class="text-primary">LearnConnect</span></h1>
+            <p class="lead text-secondary mb-4">Discover expert-led courses designed to help you master new skills, advance your career, and achieve your goals.</p>
+            <div class="d-flex justify-content-center justify-content-lg-start">
+                <a asp-action="Signup" asp-controller="Account" class="btn btn-primary btn-lg rounded-pill px-4 fw-medium">Get Started</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 order-1 order-md-2">
+        <div class="position-relative">
+            <img src="~/assets/images/hero.jpg" alt="Students learning together" class="img-fluid rounded-4 shadow-lg border border-5 border-white" />
+            <div class="position-absolute top-0 start-0 translate-middle-y bg-white p-3 rounded-3 shadow d-none d-lg-flex align-items-center gap-2">
+                <i class="bi bi-mortarboard-fill text-primary fs-4"></i>
+                <span class="fw-medium">50+ Courses</span>
+            </div>
+            <div class="position-absolute bottom-0 end-0 translate-middle-y bg-white p-3 rounded-3 shadow d-none d-lg-flex align-items-center gap-2">
+                <i class="bi bi-people-fill text-primary fs-4"></i>
+                <span class="fw-medium">Trusted Materials</span>
+            </div>
+        </div>
+    </div>
+</div>
