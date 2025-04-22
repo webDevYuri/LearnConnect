@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "User_Layout";
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>User Dashboard</h1>
+
+
+@section Scripts {
+    <script>
+        @if (TempData["Success"] != null)
+        {
+            <text>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '@TempData["Success"]',
+                    confirmButtonColor: '#3085d6'
+                });
+            </text>
+        }
+    </script>
+}

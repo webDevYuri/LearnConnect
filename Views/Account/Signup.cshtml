@@ -12,20 +12,23 @@
             <h4 class="text-center mb-4 fw-bold text-secondary">Create Account</h4>
 
             <form asp-action="Signup" method="post">
-                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+                <div class="mb-3 text-center">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <div asp-validation-for="ConfirmPassword" class="text-danger"></div>
+                </div>
                 <div class="position-relative mb-2">
                     <i class="bi bi-envelope-at position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
-                    <input asp-for="Email" class="form-control ps-5" placeholder="Email address" />
+                    <input asp-for="Email" type="email" class="form-control ps-5" placeholder="Email address" />
                 </div>
 
                 <div class="position-relative mb-2">
                     <i class="bi bi-lock position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
-                    <input asp-for="Password" type="password" class="form-control ps-5" id="password" placeholder="Password" />
+                    <input asp-for="Password" type="password" class="form-control ps-5" placeholder="Password" />
                 </div>
 
                 <div class="position-relative mb-4">
                     <i class="bi bi-shield-lock position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
-                    <input asp-for="ConfirmPassword" type="password" class="form-control ps-5" id="confirmPassword" placeholder="Confirm password" />
+                    <input asp-for="ConfirmPassword" type="password" class="form-control ps-5" placeholder="Confirm password" />
                 </div>
 
                 <div class="d-grid mb-4">

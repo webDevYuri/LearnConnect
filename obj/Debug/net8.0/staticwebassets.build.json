@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OKvweLph3kORuc4d06KShGn2y06qsmQL14hHG3qMf1E=",
+  "Hash": "ZU9qj0jyK4PJ1TaAnt7lpIpVKqFgS9SXlNY2NbwKZIw=",
   "Source": "LearnConnect",
   "BasePath": "_content/LearnConnect",
   "Mode": "Default",
@@ -136,8 +136,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5ipweew5fc",
-      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "Fingerprint": "fwu80vjw6d",
+      "Integrity": "b1qAhNP1NBVgg20nrMSpXaWLJVRyh05lPa+PTxQ+xr0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1672,51 +1672,6 @@
       ]
     },
     {
-      "Route": "css/site.5ipweew5fc.css",
-      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "0"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 07:30:16 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "5ipweew5fc"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
-        }
-      ]
-    },
-    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -1727,7 +1682,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "0"
+          "Value": "212"
         },
         {
           "Name": "Content-Type",
@@ -1735,11 +1690,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+          "Value": "\"b1qAhNP1NBVgg20nrMSpXaWLJVRyh05lPa+PTxQ+xr0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 07:30:16 GMT"
+          "Value": "Tue, 22 Apr 2025 06:57:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1749,7 +1704,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+          "Value": "sha256-b1qAhNP1NBVgg20nrMSpXaWLJVRyh05lPa+PTxQ+xr0="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.fwu80vjw6d.css",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "212"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"b1qAhNP1NBVgg20nrMSpXaWLJVRyh05lPa+PTxQ+xr0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:57:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fwu80vjw6d"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-b1qAhNP1NBVgg20nrMSpXaWLJVRyh05lPa+PTxQ+xr0="
         }
       ]
     },
@@ -2104,7 +2104,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 13:18:16 GMT"
+          "Value": "Tue, 22 Apr 2025 06:25:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2141,7 +2141,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 13:18:16 GMT"
+          "Value": "Tue, 22 Apr 2025 06:25:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2178,7 +2178,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 13:18:16 GMT"
+          "Value": "Tue, 22 Apr 2025 06:25:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2223,7 +2223,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 13:18:16 GMT"
+          "Value": "Tue, 22 Apr 2025 06:25:16 GMT"
         },
         {
           "Name": "Cache-Control",

@@ -31,3 +31,30 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        @if (TempData["Success"] != null)
+        {
+            <text>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: '@TempData["Success"]',
+                        confirmButtonColor: '#3085d6'
+                    });
+            </text>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <text>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops!',
+                        text: '@TempData["Error"]',
+                        confirmButtonColor: '#d33'
+                    });
+            </text>
+        }
+    </script>
+}

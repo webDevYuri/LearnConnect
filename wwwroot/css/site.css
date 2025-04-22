@@ -1,0 +1,10 @@
+.validation-summary-errors ul,
+.validation-summary-valid ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.swal2-icon.swal2-success .swal2-icon.swal2-error {
+    transform: scale(1.2);
+}
