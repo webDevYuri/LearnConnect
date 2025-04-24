@@ -12,12 +12,13 @@
             <form asp-action="Signin" method="post">
                 <div class="position-relative mb-2">
                     <i class="bi bi-envelope-at position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
-                    <input type="email" class="form-control ps-5" name="email" placeholder="Email address" required />
+                    <input type="email" class="form-control ps-5" name="email" placeholder="Email address" />
                 </div>
 
                 <div class="position-relative mb-4">
                     <i class="bi bi-lock position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
-                    <input type="password" class="form-control ps-5" name="password" placeholder="Password" required />
+                    <i class="bi bi-eye-slash position-absolute" id="toggleIcon" onclick="togglePassword()" style="right: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
+                    <input type="password" class="form-control ps-5" id="password" name="password" placeholder="Password" />
                 </div>
 
                 <div class="d-grid gap-2 mb-3">
@@ -55,6 +56,20 @@
                         confirmButtonColor: '#d33'
                     });
             </text>
+        }
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            const toggleIcon = document.getElementById("toggleIcon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove("bi-eye-slash");
+                toggleIcon.classList.add("bi-eye");
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove("bi-eye");
+                toggleIcon.classList.add("bi-eye-slash");
+            }
         }
     </script>
 }
