@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\assets\" />
+    <Folder Include="wwwroot\uploads\profile-photos\" />
   </ItemGroup>
 
   <ItemGroup>

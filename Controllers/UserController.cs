@@ -98,6 +98,22 @@ namespace LearnConnect.Controllers
                 return View(model);
             }
 
+            // Validate birthday (minimum age of 13)
+            var minimumAge = 13;
+            var minimumBirthday = DateTime.Today.AddYears(-minimumAge);
+            if (model.Birthday > minimumBirthday)
+            {
+                ModelState.AddModelError("Birthday", $"You must be at least {minimumAge} years old to use this service.");
+                return View(model);
+            }
+
+            // Validate phone number format
+            if (!string.IsNullOrEmpty(model.Phone) && !System.Text.RegularExpressions.Regex.IsMatch(model.Phone, @"^\+?[0-9]{10,15}$"))
+            {
+                ModelState.AddModelError("Phone", "Please enter a valid phone number.");
+                return View(model);
+            }
+
             if (!string.IsNullOrEmpty(currentPassword) && !string.IsNullOrEmpty(newPassword))
             {
                 var result = _hasher.VerifyHashedPassword(existingProfile, existingProfile.PasswordHash, currentPassword);
@@ -113,35 +129,66 @@ namespace LearnConnect.Controllers
                     return View(model);
                 }
 
+                if (newPassword.Length < 8)
+                {
+                    ModelState.AddModelError("", "New password must be at least 8 characters long.");
+                    return View(model);
+                }
+
                 existingProfile.PasswordHash = _hasher.HashPassword(existingProfile, newPassword);
             }
 
             if (profilePhoto != null && profilePhoto.Length > 0)
             {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profile-photos");
-                if (!Directory.Exists(uploadsFolder))
+                // Validate file size (max 5MB)
+                if (profilePhoto.Length > 5 * 1024 * 1024)
                 {
-                    Directory.CreateDirectory(uploadsFolder);
+                    ModelState.AddModelError("", "Profile photo must be less than 5MB.");
+                    return View(model);
                 }
 
-                if (!string.IsNullOrEmpty(existingProfile.ProfilePhotoPath))
+                // Validate file type
+                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                var fileExtension = Path.GetExtension(profilePhoto.FileName).ToLowerInvariant();
+                if (!allowedExtensions.Contains(fileExtension))
                 {
-                    var oldPhotoPath = Path.Combine(_environment.WebRootPath, existingProfile.ProfilePhotoPath.TrimStart('/'));
-                    if (System.IO.File.Exists(oldPhotoPath))
+                    ModelState.AddModelError("", "Only JPG, JPEG, PNG, and GIF files are allowed.");
+                    return View(model);
+                }
+
+                try
+                {
+                    var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profile-photos");
+                    if (!Directory.Exists(uploadsFolder))
                     {
-                        System.IO.File.Delete(oldPhotoPath);
+                        Directory.CreateDirectory(uploadsFolder);
                     }
+
+
+                    if (!string.IsNullOrEmpty(existingProfile.ProfilePhotoPath))
+                    {
+                        var oldPhotoPath = Path.Combine(_environment.WebRootPath, existingProfile.ProfilePhotoPath.TrimStart('/'));
+                        if (System.IO.File.Exists(oldPhotoPath))
+                        {
+                            System.IO.File.Delete(oldPhotoPath);
+                        }
+                    }
+
+                    var uniqueFileName = $"{existingProfile.Id}_{DateTime.Now.Ticks}{fileExtension}";
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await profilePhoto.CopyToAsync(stream);
+                    }
+
+                    existingProfile.ProfilePhotoPath = $"/uploads/profile-photos/{uniqueFileName}";
                 }
-
-                var uniqueFileName = $"{existingProfile.Id}_{DateTime.Now.Ticks}{Path.GetExtension(profilePhoto.FileName)}";
-                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                catch (Exception ex)
                 {
-                    await profilePhoto.CopyToAsync(stream);
+                    ModelState.AddModelError("", "An error occurred while uploading the profile photo. Please try again.");
+                    return View(model);
                 }
-
-                existingProfile.ProfilePhotoPath = $"/uploads/profile-photos/{uniqueFileName}";
             }
 
             existingProfile.FirstName = model.FirstName;
@@ -162,15 +209,165 @@ namespace LearnConnect.Controllers
                 HttpContext.Session.SetString("UserEmail", model.Email);
             }
 
-            await _context.SaveChangesAsync();
-            TempData["Success"] = "Profile updated successfully.";
-            return RedirectToAction("UpdateProfile");
+            try
+            {
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Profile updated successfully.";
+                return RedirectToAction("UpdateProfile");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "An error occurred while saving your profile. Please try again.");
+                return View(model);
+            }
         }
 
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Signin", "Account");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(string currentPassword, string newPassword, string confirmNewPassword)
+        {
+            if (string.IsNullOrEmpty(currentPassword))
+            {
+                return Json(new { success = false, message = "Current password is required." });
+            }
+
+            if (string.IsNullOrEmpty(newPassword))
+            {
+                return Json(new { success = false, message = "New password is required." });
+            }
+
+            if (string.IsNullOrEmpty(confirmNewPassword))
+            {
+                return Json(new { success = false, message = "Please confirm your new password." });
+            }
+
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return Json(new { success = false, message = "Session expired. Please sign in again." });
+            }
+
+            var user = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+            if (user == null)
+            {
+                return Json(new { success = false, message = "User not found. Please sign in again." });
+            }
+
+            // Verify current password
+            var result = _hasher.VerifyHashedPassword(user, user.PasswordHash, currentPassword);
+            if (result == PasswordVerificationResult.Failed)
+            {
+                return Json(new { success = false, message = "Current password is incorrect." });
+            }
+
+            // Validate new password
+            if (newPassword != confirmNewPassword)
+            {
+                return Json(new { success = false, message = "New passwords do not match." });
+            }
+
+            if (newPassword.Length < 8)
+            {
+                return Json(new { success = false, message = "New password must be at least 8 characters long." });
+            }
+
+            // Check if new password is the same as current password
+            var newPasswordResult = _hasher.VerifyHashedPassword(user, user.PasswordHash, newPassword);
+            if (newPasswordResult == PasswordVerificationResult.Success)
+            {
+                return Json(new { success = false, message = "New password cannot be the same as your current password." });
+            }
+
+            try
+            {
+                // Update password
+                user.PasswordHash = _hasher.HashPassword(user, newPassword);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true, message = "Password changed successfully." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "An error occurred while changing your password. Please try again." });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePhoto(IFormFile profilePhoto)
+        {
+            if (profilePhoto == null || profilePhoto.Length == 0)
+            {
+                return Json(new { success = false, message = "Please select a photo to upload." });
+            }
+
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return Json(new { success = false, message = "Session expired. Please sign in again." });
+            }
+
+            var user = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+            if (user == null)
+            {
+                return Json(new { success = false, message = "User not found. Please sign in again." });
+            }
+
+            // Validate file size
+            if (profilePhoto.Length > 5 * 1024 * 1024)
+            {
+                return Json(new { success = false, message = "File size must be less than 5MB." });
+            }
+
+            // Validate file type
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+            var fileExtension = Path.GetExtension(profilePhoto.FileName).ToLowerInvariant();
+            if (!allowedExtensions.Contains(fileExtension))
+            {
+                return Json(new { success = false, message = "Only JPG, JPEG, PNG, and GIF files are allowed." });
+            }
+
+            try
+            {
+                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profile-photos");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                // Delete old photo if exists
+                if (!string.IsNullOrEmpty(user.ProfilePhotoPath))
+                {
+                    var oldPhotoPath = Path.Combine(_environment.WebRootPath, user.ProfilePhotoPath.TrimStart('/'));
+                    if (System.IO.File.Exists(oldPhotoPath))
+                    {
+                        System.IO.File.Delete(oldPhotoPath);
+                    }
+                }
+
+                var uniqueFileName = $"{user.Id}_{DateTime.Now.Ticks}{fileExtension}";
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await profilePhoto.CopyToAsync(stream);
+                }
+
+                user.ProfilePhotoPath = $"/uploads/profile-photos/{uniqueFileName}";
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true, message = "Profile photo updated successfully." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "An error occurred while uploading the photo. Please try again." });
+            }
         }
     }
 }
