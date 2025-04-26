@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "j27Aupm6x5NYW+yl2hp3CFpu8EgyMoRVRWKuR1pLilY=",
+  "Hash": "Kbt3VyMYrJ0/RqaBPV8TfyPllx8p5nTOSqKNZXoRFBc=",
   "Source": "LearnConnect",
   "BasePath": "_content/LearnConnect",
   "Mode": "Default",
@@ -1487,12 +1487,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\1_638812851949692738.png"
     },
     {
-      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638812854751779304.jpg",
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638812943925728490.jpg",
       "SourceId": "LearnConnect",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
       "BasePath": "_content/LearnConnect",
-      "RelativePath": "uploads/profile-photos/2_638812854751779304#[.{fingerprint}]?.jpg",
+      "RelativePath": "uploads/profile-photos/2_638812943925728490#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1505,7 +1505,7 @@
       "Integrity": "SKCk6TEzdX1f+heK0rAAFREGee1TbUk11a4hvuH60qo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\2_638812854751779304.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\2_638812943925728490.jpg"
     }
   ],
   "Endpoints": [
@@ -2352,7 +2352,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 09:39:26 GMT"
+          "Value": "Sat, 26 Apr 2025 10:14:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2389,7 +2389,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 09:39:26 GMT"
+          "Value": "Sat, 26 Apr 2025 10:14:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2426,7 +2426,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 09:39:26 GMT"
+          "Value": "Sat, 26 Apr 2025 10:14:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2471,7 +2471,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 09:39:26 GMT"
+          "Value": "Sat, 26 Apr 2025 10:14:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7250,8 +7250,8 @@
       ]
     },
     {
-      "Route": "uploads/profile-photos/2_638812854751779304.4djh40611m.jpg",
-      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638812854751779304.jpg",
+      "Route": "uploads/profile-photos/2_638812943925728490.4djh40611m.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638812943925728490.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7272,7 +7272,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 09:31:15 GMT"
+          "Value": "Sat, 26 Apr 2025 11:59:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7286,7 +7286,7 @@
         },
         {
           "Name": "label",
-          "Value": "uploads/profile-photos/2_638812854751779304.jpg"
+          "Value": "uploads/profile-photos/2_638812943925728490.jpg"
         },
         {
           "Name": "integrity",
@@ -7295,8 +7295,8 @@
       ]
     },
     {
-      "Route": "uploads/profile-photos/2_638812854751779304.jpg",
-      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638812854751779304.jpg",
+      "Route": "uploads/profile-photos/2_638812943925728490.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638812943925728490.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7317,7 +7317,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 09:31:15 GMT"
+          "Value": "Sat, 26 Apr 2025 11:59:52 GMT"
         },
         {
           "Name": "Cache-Control",

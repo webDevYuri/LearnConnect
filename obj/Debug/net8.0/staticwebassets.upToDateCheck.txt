@@ -66,4 +66,4 @@ wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 wwwroot\uploads\profile-photos\1_638812851949692738.png
-wwwroot\uploads\profile-photos\2_638812854751779304.jpg
+wwwroot\uploads\profile-photos\2_638812943925728490.jpg

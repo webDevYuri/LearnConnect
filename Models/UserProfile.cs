@@ -53,7 +53,6 @@ namespace LearnConnect.Models
         [Display(Name = "Profile Photo")]
         [DataType(DataType.Upload)]
         [FileExtensions(Extensions = "jpg,jpeg,png,gif")]
-        [MaxFileSize(5 * 1024 * 1024)] // 5MB
         public IFormFile? ProfilePhoto { get; set; }
     }
 } 

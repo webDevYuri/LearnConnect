@@ -20,6 +20,12 @@ namespace LearnConnect.Controllers
             _environment = environment;
         }
 
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Signin", "Account");
+        }
+
         public IActionResult Dashboard()
         {
             var userEmail = HttpContext.Session.GetString("UserEmail");
@@ -222,12 +228,6 @@ namespace LearnConnect.Controllers
             }
         }
 
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Signin", "Account");
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePassword(string currentPassword, string newPassword, string confirmNewPassword)
@@ -259,14 +259,12 @@ namespace LearnConnect.Controllers
                 return Json(new { success = false, message = "User not found. Please sign in again." });
             }
 
-            // Verify current password
             var result = _hasher.VerifyHashedPassword(user, user.PasswordHash, currentPassword);
             if (result == PasswordVerificationResult.Failed)
             {
                 return Json(new { success = false, message = "Current password is incorrect." });
             }
 
-            // Validate new password
             if (newPassword != confirmNewPassword)
             {
                 return Json(new { success = false, message = "New passwords do not match." });
@@ -277,7 +275,6 @@ namespace LearnConnect.Controllers
                 return Json(new { success = false, message = "New password must be at least 8 characters long." });
             }
 
-            // Check if new password is the same as current password
             var newPasswordResult = _hasher.VerifyHashedPassword(user, user.PasswordHash, newPassword);
             if (newPasswordResult == PasswordVerificationResult.Success)
             {
@@ -286,7 +283,6 @@ namespace LearnConnect.Controllers
 
             try
             {
-                // Update password
                 user.PasswordHash = _hasher.HashPassword(user, newPassword);
                 await _context.SaveChangesAsync();
 
@@ -319,13 +315,11 @@ namespace LearnConnect.Controllers
                 return Json(new { success = false, message = "User not found. Please sign in again." });
             }
 
-            // Validate file size
             if (profilePhoto.Length > 5 * 1024 * 1024)
             {
                 return Json(new { success = false, message = "File size must be less than 5MB." });
             }
 
-            // Validate file type
             var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
             var fileExtension = Path.GetExtension(profilePhoto.FileName).ToLowerInvariant();
             if (!allowedExtensions.Contains(fileExtension))
@@ -341,7 +335,6 @@ namespace LearnConnect.Controllers
                     Directory.CreateDirectory(uploadsFolder);
                 }
 
-                // Delete old photo if exists
                 if (!string.IsNullOrEmpty(user.ProfilePhotoPath))
                 {
                     var oldPhotoPath = Path.Combine(_environment.WebRootPath, user.ProfilePhotoPath.TrimStart('/'));
@@ -369,5 +362,6 @@ namespace LearnConnect.Controllers
                 return Json(new { success = false, message = "An error occurred while uploading the photo. Please try again." });
             }
         }
+
     }
 }
