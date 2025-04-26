@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cKL1vzpFlbjE7IQZi2CECjcN3bQLeHDfZut9FrnSybM=",
+  "Hash": "th7Qb0ejH50Myf+flNqT2b14350NjBF6q30sJZENUHo=",
   "Source": "LearnConnect",
   "BasePath": "_content/LearnConnect",
   "Mode": "Default",
@@ -141,6 +141,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_dashboard.css",
+      "SourceId": "LearnConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
+      "BasePath": "_content/LearnConnect",
+      "RelativePath": "css/user_dashboard#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dyl3hpwlin",
+      "Integrity": "G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\user_dashboard.css"
+    },
+    {
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_layout.css",
+      "SourceId": "LearnConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
+      "BasePath": "_content/LearnConnect",
+      "RelativePath": "css/user_layout#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dtmn9e1csu",
+      "Integrity": "QYRK2MjJSHomeKU0hSdWftbbmB8Ih4ehUz5dsh5NlHQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\user_layout.css"
     },
     {
       "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\favicon.ico",
@@ -1754,6 +1796,170 @@
       ]
     },
     {
+      "Route": "css/user_dashboard.css",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1114"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 13:20:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw="
+        }
+      ]
+    },
+    {
+      "Route": "css/user_dashboard.dyl3hpwlin.css",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1114"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 13:20:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dyl3hpwlin"
+        },
+        {
+          "Name": "label",
+          "Value": "css/user_dashboard.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw="
+        }
+      ]
+    },
+    {
+      "Route": "css/user_layout.css",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_layout.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "290"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QYRK2MjJSHomeKU0hSdWftbbmB8Ih4ehUz5dsh5NlHQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 03:57:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QYRK2MjJSHomeKU0hSdWftbbmB8Ih4ehUz5dsh5NlHQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/user_layout.dtmn9e1csu.css",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_layout.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "290"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QYRK2MjJSHomeKU0hSdWftbbmB8Ih4ehUz5dsh5NlHQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 03:57:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dtmn9e1csu"
+        },
+        {
+          "Name": "label",
+          "Value": "css/user_layout.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QYRK2MjJSHomeKU0hSdWftbbmB8Ih4ehUz5dsh5NlHQ="
+        }
+      ]
+    },
+    {
       "Route": "favicon.61n19gt1b8.ico",
       "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\favicon.ico",
       "Selectors": [],
@@ -2104,7 +2310,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 04:31:47 GMT"
+          "Value": "Sat, 26 Apr 2025 04:13:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2141,7 +2347,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 04:31:47 GMT"
+          "Value": "Sat, 26 Apr 2025 04:13:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2178,7 +2384,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 04:31:47 GMT"
+          "Value": "Sat, 26 Apr 2025 04:13:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2223,7 +2429,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 04:31:47 GMT"
+          "Value": "Sat, 26 Apr 2025 04:13:53 GMT"
         },
         {
           "Name": "Cache-Control",

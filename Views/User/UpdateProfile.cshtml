@@ -1,0 +1,170 @@
+﻿@model LearnConnect.Models.UserProfile
+
+@{
+    Layout = "User_Layout";
+    ViewData["Title"] = "Update Profile";
+}
+
+
+<div class="container py-4 py-md-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-header bg-white border-0 pt-4 pb-0">
+                    <div class="text-center mb-3">
+                        @if (!string.IsNullOrEmpty(Model.ProfilePhotoPath))
+                        {
+                            <img src="@Model.ProfilePhotoPath" class="rounded-circle shadow-sm" style="width: 100px; height: 100px; object-fit: cover;" alt="Profile Photo" />
+                        }
+                        else
+                        {
+                            <i class="bi bi-person-circle text-primary" style="font-size: 100px"></i>
+                        }
+                    </div>
+                    <h2 class="text-center fw-light mb-0">Profile <span class="fw-bold">Information</span></h2>
+                    <hr class="text-primary opacity-25 mx-auto w-25 mt-3">
+                </div>
+
+                <div class="card-body p-4 p-lg-5 pt-lg-3">
+                    <form asp-action="UpdateProfile" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger rounded-3" role="alert"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="PasswordHash" />
+
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <input asp-for="Email" class="form-control" id="floatingEmail" placeholder="Email" />
+                                <label asp-for="Email" for="floatingEmail">
+                                    <i class="bi bi-envelope-at me-1 text-primary"></i> Email Address
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <input type="password" name="CurrentPassword" class="form-control" id="floatingCurrentPassword" placeholder="Current Password" />
+                                <label for="floatingCurrentPassword">
+                                    <i class="bi bi-lock me-1 text-primary"></i> Current Password
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <input type="password" name="NewPassword" class="form-control" id="floatingNewPassword" placeholder="New Password" />
+                                <label for="floatingNewPassword">
+                                    <i class="bi bi-key me-1 text-primary"></i> New Password
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <input type="password" name="ConfirmNewPassword" class="form-control" id="floatingConfirmNewPassword" placeholder="Confirm New Password" />
+                                <label for="floatingConfirmNewPassword">
+                                    <i class="bi bi-shield-lock me-1 text-primary"></i> Confirm New Password
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input asp-for="FirstName" class="form-control" id="floatingFirstName" placeholder="First Name" />
+                                    <label asp-for="FirstName" for="floatingFirstName"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input asp-for="MiddleName" class="form-control" id="floatingMiddleName" placeholder="Middle Name" />
+                                    <label asp-for="MiddleName" for="floatingMiddleName"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input asp-for="LastName" class="form-control" id="floatingLastName" placeholder="Last Name" />
+                                    <label asp-for="LastName" for="floatingLastName"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <input asp-for="Phone" class="form-control" id="phoneNumber" placeholder="Phone" />
+                                <label asp-for="Phone" for="phoneNumber">
+                                    <i class="bi bi-telephone me-1 text-primary"></i> Phone Number
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <input asp-for="Birthday" class="form-control" type="date" id="floatingBirthday" placeholder="Birthday" />
+                                <label asp-for="Birthday" for="floatingBirthday">
+                                    <i class="bi bi-calendar-date me-1 text-primary"></i> Birthday
+                                </label>
+                                <span asp-validation-for="Birthday" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <select asp-for="Gender" class="form-select" id="floatingGender" aria-label="Gender">
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <label for="floatingGender">
+                                    <i class="bi bi-gender-ambiguous me-1 text-primary"></i> Gender
+                                </label>
+                                <span asp-validation-for="Gender" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <input type="file" name="ProfilePhoto" class="form-control" id="floatingProfilePhoto" accept="image/*" />
+                                <label for="floatingProfilePhoto">
+                                    <i class="bi bi-camera me-1 text-primary"></i> Change Profile Photo
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary py-3 rounded-3">
+                                <span>Save Changes</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer bg-white text-center py-3 border-0">
+                    <small class="text-muted">
+                        <i class="bi bi-shield-check me-1 text-primary"></i> Your information is secure
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function initPhoneInput() {
+            var phoneInput = document.getElementById('phoneNumber');
+            var iti = window.intlTelInput(phoneInput, {
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                preferredCountries: ['ph'], 
+                separateDialCode: true,
+                autoPlaceholder: "aggressive",
+                dropdownContainer: document.body,
+                initialCountry: "ph"
+            });
+
+            document.querySelector('form').addEventListener('submit', function() {
+                phoneInput.value = iti.getNumber();
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initPhoneInput();
+        });
+    </script>
+}

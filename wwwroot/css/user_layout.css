@@ -1,0 +1,23 @@
+﻿.swal2-styled.swal2-confirm {
+    width: 100px;
+}
+
+.swal2-styled.swal2-cancel {
+    width: 100px;
+}
+
+.iti {
+    width: 100%;
+}
+
+.iti__flag-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 1px;
+}
+
+.form-group {
+    position: relative;
+}
+

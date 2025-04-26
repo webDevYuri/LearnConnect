@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_dashboard.css",
+      "PackagePath": "staticwebassets\\css\\user_dashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_layout.css",
+      "PackagePath": "staticwebassets\\css\\user_layout.css"
+    },
+    {
       "Id": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

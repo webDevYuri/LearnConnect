@@ -2,6 +2,8 @@ wwwroot\assets\images\hero.jpg
 wwwroot\assets\logo\logo.png
 wwwroot\css\landing.css
 wwwroot\css\site.css
+wwwroot\css\user_dashboard.css
+wwwroot\css\user_layout.css
 wwwroot\favicon.ico
 wwwroot\js\aos.js
 wwwroot\js\landing.js

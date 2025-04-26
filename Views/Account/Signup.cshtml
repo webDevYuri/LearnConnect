@@ -1,45 +1,149 @@
-﻿@model LearnConnect.Models.SignupViewModel
+﻿@model LearnConnect.Models.UserProfile
 
 @{
     Layout = "Signin_Signup";
     ViewData["Title"] = "Sign up";
 }
 
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card border-0 shadow-sm" style="max-width: 400px; width: 100%; border-radius: 1rem;">
-        <div class="card-body p-4 p-md-5">
-            <img src="~/assets/logo/logo.png" class="img-fluid w-50 mx-auto d-block mb-2 rounded-circle shadow-sm" alt="Logo" />
-            <h4 class="text-center mb-4 fw-bold text-secondary">Create Account</h4>
-
-            <form asp-action="Signup" method="post">
-                <div class="mb-3 text-center">
-                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-                    <div asp-validation-for="ConfirmPassword" class="text-danger"></div>
-                </div>
-                <div class="position-relative mb-2">
-                    <i class="bi bi-envelope-at position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
-                    <input asp-for="Email" type="email" class="form-control ps-5" placeholder="Email address" />
-                </div>
-
-                <div class="position-relative mb-2">
-                    <i class="bi bi-lock position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
-                    <input asp-for="Password" type="password" class="form-control ps-5" placeholder="Password" />
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-11">
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-header bg-white border-0 pt-4 pb-0">
+                    <div class="row align-items-end">
+                        <div class="col-md-3 text-center">
+                            <i class="bi bi-person-circle text-primary" style="font-size: 100px"></i>
+                        </div>
+                        <div class="col-md-9 text-center text-md-start">
+                            <h2 class="fw-light mb-0">Create <span class="fw-bold">Account</span></h2>
+                            <p class="text-muted">Join our platform by completing the registration form below</p>
+                            <hr class="text-primary opacity-25 w-100 mt-2">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="position-relative mb-4">
-                    <i class="bi bi-shield-lock position-absolute" style="left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #6c757d; z-index:5;"></i>
-                    <input asp-for="ConfirmPassword" type="password" class="form-control ps-5" placeholder="Confirm password" />
-                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Signup" method="post" enctype="multipart/form-data" id="signupForm">
+                        <div asp-validation-summary="All" class="text-danger text-center text-md-start rounded-3 mb-4"></div>
+                        <div class="card mb-4 border-0 bg-light">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="bi bi-shield-lock me-2"></i>Account Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input asp-for="Email" type="email" class="form-control" id="floatingEmail" placeholder="Email" />
+                                            <label asp-for="Email" for="floatingEmail">
+                                                <i class="bi bi-envelope-at me-1 text-primary"></i> Email Address
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input asp-for="Phone" class="form-control" id="phoneNumber" placeholder="Phone" />
+                                            <label asp-for="Phone" for="phoneNumber">
+                                                <i class="bi bi-telephone me-1 text-primary"></i> Phone Number
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input asp-for="PasswordHash" type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+                                            <label asp-for="PasswordHash" for="floatingPassword">
+                                                <i class="bi bi-lock me-1 text-primary"></i> Password
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input name="confirmPassword" type="password" class="form-control" id="floatingConfirmPassword" placeholder="Confirm Password" />
+                                            <label for="floatingConfirmPassword">
+                                                <i class="bi bi-shield-lock me-1 text-primary"></i> Confirm Password
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4 border-0 bg-light">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="bi bi-person-badge me-2"></i>Personal Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input asp-for="FirstName" class="form-control" id="floatingFirstName" placeholder="First Name" />
+                                            <label asp-for="FirstName" for="floatingFirstName">First Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input asp-for="MiddleName" class="form-control" id="floatingMiddleName" placeholder="Middle Name" />
+                                            <label asp-for="MiddleName" for="floatingMiddleName">Middle Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input asp-for="LastName" class="form-control" id="floatingLastName" placeholder="Last Name" />
+                                            <label asp-for="LastName" for="floatingLastName">Last Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input asp-for="Birthday" class="form-control" type="date" id="floatingBirthday" placeholder="Birthday" />
+                                            <label asp-for="Birthday" for="floatingBirthday">
+                                                <i class="bi bi-calendar-date me-1 text-primary"></i> Birthday
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <select asp-for="Gender" class="form-select" id="floatingGender" aria-label="Gender">
+                                                <option value="">Select Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                            <label for="floatingGender">
+                                                <i class="bi bi-gender-ambiguous me-1 text-primary"></i> Gender
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating position-relative">
+                                            <input name="profilePhoto" type="file" class="form-control" id="floatingProfilePhoto" accept="image/*" />
+                                            <label for="floatingProfilePhoto">
+                                                <i class="bi bi-camera me-1 text-primary"></i> Profile Photo
+                                            </label>
+                                            <i class="bi bi-cloud-upload position-absolute fs-3 text-primary" style="top: 10px; right: 10px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="d-grid mb-4">
-                    <button type="submit" class="btn btn-outline-primary btn-lg" style="border-radius: 0.5rem;">Sign up</button>
+                        <div class="row mt-4">
+                            <div class="col-md-8 text-center text-md-start order-2 order-md-1 mt-3 mt-lg-0">
+                                <small class="text-muted">
+                                    <i class="bi bi-shield-check me-1 text-primary"></i> Your information is secure and will not be shared with third parties.
+                                </small>
+                                <div class="mt-2">
+                                    <p class="mb-0">Already have an account? <a asp-action="Signin" class="text-primary fw-medium text-decoration-none">Login</a></p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 order-1 order-md-2">
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary py-3 rounded-3">
+                                        <i class="bi bi-person-plus-fill me-2"></i> Create Account
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-
-                <div class="text-center">
-                    <p class="mb-0">Already have an account? <a asp-action="Signin" class="text-primary fw-medium text-decoration-none">Login</a></p>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
-
