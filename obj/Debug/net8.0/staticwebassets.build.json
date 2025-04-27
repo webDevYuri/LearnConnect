@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Kbt3VyMYrJ0/RqaBPV8TfyPllx8p5nTOSqKNZXoRFBc=",
+  "Hash": "tYTsrNIjr6tNcGY+NUG/anNcZaoZ3NDeBYy+nLX3POw=",
   "Source": "LearnConnect",
   "BasePath": "_content/LearnConnect",
   "Mode": "Default",
@@ -1487,12 +1487,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\1_638812851949692738.png"
     },
     {
-      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638812943925728490.jpg",
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638813861943635465.jpg",
       "SourceId": "LearnConnect",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
       "BasePath": "_content/LearnConnect",
-      "RelativePath": "uploads/profile-photos/2_638812943925728490#[.{fingerprint}]?.jpg",
+      "RelativePath": "uploads/profile-photos/2_638813861943635465#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1505,7 +1505,28 @@
       "Integrity": "SKCk6TEzdX1f+heK0rAAFREGee1TbUk11a4hvuH60qo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\2_638812943925728490.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\2_638813861943635465.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\638812946732292280.png",
+      "SourceId": "LearnConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
+      "BasePath": "_content/LearnConnect",
+      "RelativePath": "uploads/profile-photos/638812946732292280#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "km5nmrlj13",
+      "Integrity": "PK7bztDWXlJZ+v1g0MWHuGMUDso0Gm7s2q3cfyLvm2Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\638812946732292280.png"
     }
   ],
   "Endpoints": [
@@ -7250,8 +7271,8 @@
       ]
     },
     {
-      "Route": "uploads/profile-photos/2_638812943925728490.4djh40611m.jpg",
-      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638812943925728490.jpg",
+      "Route": "uploads/profile-photos/2_638813861943635465.4djh40611m.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638813861943635465.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7272,7 +7293,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 11:59:52 GMT"
+          "Value": "Sun, 27 Apr 2025 13:29:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7286,7 +7307,7 @@
         },
         {
           "Name": "label",
-          "Value": "uploads/profile-photos/2_638812943925728490.jpg"
+          "Value": "uploads/profile-photos/2_638813861943635465.jpg"
         },
         {
           "Name": "integrity",
@@ -7295,8 +7316,8 @@
       ]
     },
     {
-      "Route": "uploads/profile-photos/2_638812943925728490.jpg",
-      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638812943925728490.jpg",
+      "Route": "uploads/profile-photos/2_638813861943635465.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\2_638813861943635465.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7317,7 +7338,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 11:59:52 GMT"
+          "Value": "Sun, 27 Apr 2025 13:29:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7328,6 +7349,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-SKCk6TEzdX1f+heK0rAAFREGee1TbUk11a4hvuH60qo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/profile-photos/638812946732292280.km5nmrlj13.png",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\638812946732292280.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "99883"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PK7bztDWXlJZ+v1g0MWHuGMUDso0Gm7s2q3cfyLvm2Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 12:04:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "km5nmrlj13"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/profile-photos/638812946732292280.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-PK7bztDWXlJZ+v1g0MWHuGMUDso0Gm7s2q3cfyLvm2Q="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/profile-photos/638812946732292280.png",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\638812946732292280.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "99883"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PK7bztDWXlJZ+v1g0MWHuGMUDso0Gm7s2q3cfyLvm2Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 12:04:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-PK7bztDWXlJZ+v1g0MWHuGMUDso0Gm7s2q3cfyLvm2Q="
         }
       ]
     }

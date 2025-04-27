@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using LearnConnect.Data
+@inject LcDbContext _context
+
+@{
+    var userEmail = Context.Session.GetString("UserEmail");
+    var userProfile = userEmail != null ? _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail) : null;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,8 +27,8 @@
                     <div class="col-3">
                         <div class="row align-items-center">
                             <div class="col-5 d-flex align-items-center">
-                                <a class="navbar-brand m-0" href="#">
-                                    <img src="~/assets/logo/logo.png" alt="LearnConnect Logo" height="60">
+                                <a class="navbar-brand fw-bold" asp-action="Dashboard">
+                                    <span class="text-primary">Learn</span>Connect
                                 </a>
                                 <input type="text" class="form-control" style="border-radius: 30px; width: 200px; height: 40px" placeholder="Search...">
                             </div>
@@ -71,7 +79,14 @@
                             <div class="col-2">
                                 <div class="dropdown">
                                     <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-person-circle fs-4"></i>
+                                        @if (userProfile?.ProfilePhotoPath != null)
+                                        {
+                                            <img src="@userProfile.ProfilePhotoPath" class="rounded-circle shadow-sm" style="width: 32px; height: 32px; object-fit: cover;" alt="Profile Photo" />
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-person-circle fs-4"></i>
+                                        }
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li>
@@ -149,7 +164,14 @@
                                 <div class="col-3 text-center">
                                     <div class="dropdown">
                                         <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-person-circle fs-4"></i>
+                                            @if (userProfile?.ProfilePhotoPath != null)
+                                            {
+                                                <img src="@userProfile.ProfilePhotoPath" class="rounded-circle shadow-sm" style="width: 32px; height: 32px; object-fit: cover;" alt="Profile Photo" />
+                                            }
+                                            else
+                                            {
+                                                <i class="bi bi-person-circle fs-4"></i>
+                                            }
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end">
                                             <li>

@@ -104,7 +104,6 @@ namespace LearnConnect.Controllers
                 return View(model);
             }
 
-            // Validate birthday (minimum age of 13)
             var minimumAge = 13;
             var minimumBirthday = DateTime.Today.AddYears(-minimumAge);
             if (model.Birthday > minimumBirthday)
@@ -113,7 +112,6 @@ namespace LearnConnect.Controllers
                 return View(model);
             }
 
-            // Validate phone number format
             if (!string.IsNullOrEmpty(model.Phone) && !System.Text.RegularExpressions.Regex.IsMatch(model.Phone, @"^\+?[0-9]{10,15}$"))
             {
                 ModelState.AddModelError("Phone", "Please enter a valid phone number.");
@@ -146,14 +144,12 @@ namespace LearnConnect.Controllers
 
             if (profilePhoto != null && profilePhoto.Length > 0)
             {
-                // Validate file size (max 5MB)
                 if (profilePhoto.Length > 5 * 1024 * 1024)
                 {
                     ModelState.AddModelError("", "Profile photo must be less than 5MB.");
                     return View(model);
                 }
 
-                // Validate file type
                 var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
                 var fileExtension = Path.GetExtension(profilePhoto.FileName).ToLowerInvariant();
                 if (!allowedExtensions.Contains(fileExtension))
