@@ -20,6 +20,16 @@ namespace LearnConnect.Controllers
             _environment = environment;
         }
 
+        private IActionResult RedirectIfNotLoggedIn()
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return RedirectToAction("Signin", "Account");
+            }
+            return null;
+        }
+
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
@@ -28,52 +38,42 @@ namespace LearnConnect.Controllers
 
         public IActionResult Dashboard()
         {
-            var userEmail = HttpContext.Session.GetString("UserEmail");
-            if (string.IsNullOrEmpty(userEmail))
-            {
-                return RedirectToAction("Signin", "Account");
-            }
+            var redirect = RedirectIfNotLoggedIn();
+            if (redirect != null) return redirect;
+
             return View();
         }
 
         public IActionResult News()
         {
-            var userEmail = HttpContext.Session.GetString("UserEmail");
-            if (string.IsNullOrEmpty(userEmail))
-            {
-                return RedirectToAction("Signin", "Account");
-            }
+            var redirect = RedirectIfNotLoggedIn();
+            if (redirect != null) return redirect;
+
             return View();
         }
 
         public IActionResult Question()
         {
-            var userEmail = HttpContext.Session.GetString("UserEmail");
-            if (string.IsNullOrEmpty(userEmail))
-            {
-                return RedirectToAction("Signin", "Account");
-            }
+            var redirect = RedirectIfNotLoggedIn();
+            if (redirect != null) return redirect;
+
             return View();
         }
 
         public IActionResult Shop()
         {
-            var userEmail = HttpContext.Session.GetString("UserEmail");
-            if (string.IsNullOrEmpty(userEmail))
-            {
-                return RedirectToAction("Signin", "Account");
-            }
+            var redirect = RedirectIfNotLoggedIn();
+            if (redirect != null) return redirect;
+
             return View();
         }
 
         public IActionResult UpdateProfile()
         {
-            var userEmail = HttpContext.Session.GetString("UserEmail");
-            if (string.IsNullOrEmpty(userEmail))
-            {
-                return RedirectToAction("Signin", "Account");
-            }
+            var redirect = RedirectIfNotLoggedIn();
+            if (redirect != null) return redirect;
 
+            var userEmail = HttpContext.Session.GetString("UserEmail");
             var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
             if (userProfile == null)
             {
