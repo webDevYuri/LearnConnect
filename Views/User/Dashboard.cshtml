@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<LearnConnect.Models.Post>
+@{
     Layout = "User_Layout";
     ViewData["Title"] = "Dashboard";
 }
@@ -17,14 +18,14 @@
                 <div class="d-flex align-items-center gap-2">
                     @if (userProfile?.ProfilePhotoPath != null)
                     {
-                        <img src="@userProfile.ProfilePhotoPath" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;" alt="Profile Photo" />
+                        <img src="@userProfile.ProfilePhotoPath" class="rounded-circle shadow-sm" style="width: 40px; height: 40px; object-fit: cover;" alt="Profile Photo" />
                     }
                     else
                     {
                         <i class="bi bi-person-circle fs-4"></i>
                     }
                     <div class="form-control bg-light shadow-sm rounded-pill text-muted border-0" data-bs-toggle="modal" data-bs-target="#postModal" style="cursor: pointer;">
-                        What's on your mind, Yuri?
+                        What's on your mind, @userProfile?.FirstName?
                     </div>
                 </div>
                 <div class="d-flex justify-content-between mt-3 gap-3 pt-2 border-top">
@@ -43,70 +44,93 @@
                 </div>
             </div>
         </div>
-        <div class="card rounded-4 shadow-sm mb-4 border-0">
-            <div class="card-body p-0">
-                <div class="p-3">
-                    <div class="d-flex align-items-center">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
-                             class="rounded-circle me-2" width="40" height="40" style="object-fit: cover;" />
-                        <div>
-                            <h6 class="mb-0 fw-bold">Sarah Johnson</h6>
-                            <p class="text-muted mb-0" style="font-size: 0.8rem;">Yesterday · <i class="bi bi-globe2"></i></p>
+
+        @foreach (var post in Model)
+        {
+            <div class="card rounded-4 shadow-sm mb-4 border-0">
+                <div class="card-body p-0">
+                    <div class="p-3">
+                        <div class="d-flex align-items-center">
+                            @if (post.UserProfile.ProfilePhotoPath != null)
+                            {
+                                <img src="@post.UserProfile.ProfilePhotoPath" class="rounded-circle me-2" width="40" height="40" style="object-fit: cover;" />
+                            }
+                            else
+                            {
+                                <i class="bi bi-person-circle fs-4 me-2"></i>
+                            }
+                            <div>
+                                <h6 class="mb-0 fw-bold">@post.UserProfile.FirstName @post.UserProfile.LastName</h6>
+                                <p class="text-muted mb-0" style="font-size: 0.8rem;">@post.CreatedAt.ToString("MMM dd, yyyy") · <i class="bi bi-globe2"></i></p>
+                            </div>
+                        </div>
+                        <p class="mt-2 mb-0">@post.Content</p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        @if (!string.IsNullOrEmpty(post.MediaPath))
+                        {
+                            @if (post.MediaType == "image")
+                            {
+                                <img src="@post.MediaPath" class="img-fluid" alt="Post image" style="height: 300px;" />
+                            }
+                            else if (post.MediaType == "video")
+                            {
+                                <video src="@post.MediaPath" class="img-fluid" controls style="height: 300px;"></video>
+                            }
+                        }
+                    </div>
+                    <div class="px-3 py-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="bg-primary rounded-circle text-white d-inline-flex align-items-center justify-content-center"
+                                      style="width: 20px; height: 20px; font-size: 0.7rem;">
+                                    <i class="bi bi-hand-thumbs-up-fill"></i>
+                                </span>
+                                <span class="text-muted ms-1" style="font-size: 0.9rem;">@post.Likes.Count</span>
+                            </div>
+                            <div class="text-muted" style="font-size: 0.9rem;">@post.Comments.Count comments</div>
                         </div>
                     </div>
-                    <p class="mt-2 mb-0">Just launched my new tech startup! It's been months of hard work, but we're finally live. Check out our website and let me know what you think! 🚀 #startup #tech #entrepreneurship</p>
-                </div>
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid w-100" alt="Team working on laptops" />
-                <div class="px-3 py-2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <span class="bg-primary rounded-circle text-white d-inline-flex align-items-center justify-content-center"
-                                  style="width: 20px; height: 20px; font-size: 0.7rem;">
-                                <i class="bi bi-hand-thumbs-up-fill"></i>
-                            </span>
-                            <span class="text-muted ms-1" style="font-size: 0.9rem;">287</span>
-                        </div>
-                        <div class="text-muted" style="font-size: 0.9rem;">56 comments · 12 shares</div>
+                    <div class="d-flex justify-content-between px-3 gap-2 py-1 border-top border-bottom">
+                        <button class="btn btn-light flex-grow-1 d-flex align-items-center justify-content-center gap-2 border-0">
+                            <i class="bi bi-hand-thumbs-up"></i>
+                            <span>Like</span>
+                        </button>
+                        <button class="btn btn-light flex-grow-1 d-flex align-items-center justify-content-center gap-2 border-0">
+                            <i class="bi bi-chat"></i>
+                            <span>Comment</span>
+                        </button>
+                        <button class="btn btn-light flex-grow-1 d-flex align-items-center justify-content-center gap-2 border-0">
+                            <i class="bi bi-x-circle"></i>
+                            <span>Hide</span>
+                        </button>
                     </div>
-                </div>
-                <div class="d-flex justify-content-between px-3 py-1 border-top border-bottom">
-                    <button class="btn btn-light flex-grow-1 d-flex align-items-center justify-content-center gap-2 border-0">
-                        <i class="bi bi-hand-thumbs-up"></i>
-                        <span>Like</span>
-                    </button>
-                    <button class="btn btn-light flex-grow-1 d-flex align-items-center justify-content-center gap-2 border-0">
-                        <i class="bi bi-chat"></i>
-                        <span>Comment</span>
-                    </button>
-                    <button class="btn btn-light flex-grow-1 d-flex align-items-center justify-content-center gap-2 border-0">
-                        <i class="bi bi-x-circle"></i>
-                        <span>Hide</span>
-                    </button>
-                </div>
-                <div class="p-3">
-                    <div class="d-flex gap-2">
-                        @if (userProfile?.ProfilePhotoPath != null)
-                        {
-                            <img src="@userProfile.ProfilePhotoPath" class="rounded-circle shadow-sm" style="width: 32px; height: 32px; object-fit: cover;" alt="Profile Photo" />
-                        }
-                        else
-                        {
-                            <i class="bi bi-person-circle fs-4"></i>
-                        }
-                        <div class="position-relative flex-grow-1">
-                            <form>
-                                <input type="text" class="form-control bg-light border-0 position-relative" placeholder="Write a comment..." />
-                                <button type="submit" class="btn position-absolute" style="right: 0; top: -3px;">
-                                    <i class="bi bi-send fs-5"></i>
-                                </button>
-                            </form>
+                    <div class="p-3">
+                        <div class="d-flex gap-2">
+                            @if (userProfile?.ProfilePhotoPath != null)
+                            {
+                                <img src="@userProfile.ProfilePhotoPath" class="rounded-circle shadow-sm" style="width: 32px; height: 32px; object-fit: cover;" alt="Profile Photo" />
+                            }
+                            else
+                            {
+                                <i class="bi bi-person-circle fs-4"></i>
+                            }
+                            <div class="position-relative flex-grow-1">
+                                <form>
+                                    <input type="text" class="form-control bg-light border-0 position-relative" placeholder="Write a comment..." />
+                                    <button type="submit" class="btn position-absolute" style="right: 0; top: -3px;">
+                                        <i class="bi bi-send fs-5"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
 </div>
+
 <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow-sm rounded-4">
@@ -115,7 +139,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body px-4">
-                <form id="postForm">
+                <form asp-action="CreatePost" asp-controller="User" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
                     <div class="d-flex align-items-center mb-3">
                         <div class="avatar me-2">
                             @if (userProfile?.ProfilePhotoPath != null)
@@ -130,7 +155,7 @@
                         <div class="fw-medium">@(userProfile?.FirstName + " " + userProfile?.LastName ?? "User")</div>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control border-0 p-0" id="caption" rows="3"placeholder="What's on your mind?" style="font-size: 16px; resize: none; box-shadow: none;"></textarea>
+                        <textarea class="form-control border-0 p-0" name="content" id="caption" rows="3" placeholder="What's on your mind?" style="font-size: 16px; resize: none; box-shadow: none;"></textarea>
                     </div>
                     <div class="border rounded-3 bg-light shadow-sm p-4 text-center mb-3">
                         <div id="mediaPreviewContainer" class="mb-3 d-none">
@@ -150,14 +175,14 @@
                         <div class="d-flex align-items-center justify-content-center mt-3 pt-3 border-top">
                             <i class="bi bi-phone me-2 text-secondary"></i>
                             <span class="text-muted">Add photos and videos from your device</span>
-                            <label for="mediaInput" class="btn shadow-sm ms-3 px-3" style="background: white;">Add</label>
-                            <input type="file" id="mediaInput" class="d-none" accept="image/*,video/*">
+                            <label for="mediaFile" class="btn shadow-sm ms-3 px-3" style="background: white;">Add</label>
+                            <input type="file" name="mediaFile" id="mediaFile" class="d-none" accept="image/*,video/*">
                         </div>
                     </div>
+                    <div class="modal-footer border-0 px-4 pb-4">
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-medium">Post</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer border-0 px-4 pb-4">
-                <button type="button" class="btn btn-primary w-100 py-2 fw-medium" id="submitPost">Post</button>
             </div>
         </div>
     </div>
@@ -168,42 +193,53 @@
         @if (TempData["Success"] != null)
         {
             <text>
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        text: '@TempData["Success"]',
-                        confirmButtonColor: '#3085d6'
-                    });
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '@TempData["Success"]',
+                    confirmButtonColor: '#3085d6'
+                });
+            </text>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+            <text>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: '@TempData["Error"]',
+                    confirmButtonColor: '#3085d6'
+                });
             </text>
         }
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const mediaInput = document.getElementById('mediaInput');
+            const mediaInput = document.getElementById('mediaFile');
             const photoPreview = document.getElementById('photoPreview');
             const videoPreview = document.getElementById('videoPreview');
             const mediaPreviewContainer = document.getElementById('mediaPreviewContainer');
             const uploadPrompt = document.getElementById('uploadPrompt');
             const removeMedia = document.getElementById('removeMedia');
             const caption = document.getElementById('caption');
-            const submitPost = document.getElementById('submitPost');
-
-            submitPost.disabled = true;
-            submitPost.classList.add('opacity-50');
+            const form = document.querySelector('form');
 
             function checkPostContent() {
                 const hasText = caption.value.trim().length > 0;
                 const hasMedia = !mediaPreviewContainer.classList.contains('d-none');
-                submitPost.disabled = !(hasText || hasMedia);
-                submitPost.classList.toggle('opacity-50', !(hasText || hasMedia));
+                const submitButton = form.querySelector('button[type="submit"]');
+
+                submitButton.disabled = !(hasText || hasMedia);
+                submitButton.classList.toggle('opacity-50', !(hasText || hasMedia));
             }
 
             caption.addEventListener('input', checkPostContent);
+
             mediaInput.addEventListener('change', function() {
                 if (this.files && this.files[0]) {
                     const file = this.files[0];
                     const isVideo = file.type.startsWith('video/');
-
                     const url = URL.createObjectURL(file);
 
                     if (isVideo) {
@@ -270,6 +306,23 @@
                     mediaInput.dispatchEvent(event);
                 }
             }
+
+            checkPostContent();
+
+            form.addEventListener('submit', function(e) {
+                const hasText = caption.value.trim().length > 0;
+                const hasMedia = mediaInput.files && mediaInput.files.length > 0;
+
+                if (!(hasText || hasMedia)) {
+                    e.preventDefault();
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Empty Post',
+                        text: 'Please add some text or media to your post',
+                        confirmButtonColor: '#3085d6'
+                    });
+                }
+            });
         });
     </script>
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e34nhNhHghQxW8QruHRSwnoQLsqVIZjsSFs9/kG/UN8=",
+  "Hash": "qeDN2cV9e0hAAjpYjvH7G33SmKv63U9KK0Z/1pZalgM=",
   "Source": "LearnConnect",
   "BasePath": "_content/LearnConnect",
   "Mode": "Default",
@@ -1466,6 +1466,27 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\2_638814767519921000.jpg",
+      "SourceId": "LearnConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
+      "BasePath": "_content/LearnConnect",
+      "RelativePath": "uploads/posts/2_638814767519921000#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8oh2wfjrn0",
+      "Integrity": "+HGLREtcTfwJIlgiaLWSCl6FCIkSCtjJJiq9yL59W6s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\posts\\2_638814767519921000.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\1_638812851949692738.png",
       "SourceId": "LearnConnect",
       "SourceType": "Discovered",
@@ -2373,7 +2394,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 13:43:10 GMT"
+          "Value": "Mon, 28 Apr 2025 14:32:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2410,7 +2431,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 13:43:10 GMT"
+          "Value": "Mon, 28 Apr 2025 14:32:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2447,7 +2468,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 13:43:10 GMT"
+          "Value": "Mon, 28 Apr 2025 14:32:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2492,7 +2513,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 13:43:10 GMT"
+          "Value": "Mon, 28 Apr 2025 14:32:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7185,6 +7206,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/2_638814767519921000.8oh2wfjrn0.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\2_638814767519921000.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "218921"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+HGLREtcTfwJIlgiaLWSCl6FCIkSCtjJJiq9yL59W6s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Apr 2025 14:39:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8oh2wfjrn0"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/posts/2_638814767519921000.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+HGLREtcTfwJIlgiaLWSCl6FCIkSCtjJJiq9yL59W6s="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/2_638814767519921000.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\2_638814767519921000.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "218921"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+HGLREtcTfwJIlgiaLWSCl6FCIkSCtjJJiq9yL59W6s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Apr 2025 14:39:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+HGLREtcTfwJIlgiaLWSCl6FCIkSCtjJJiq9yL59W6s="
         }
       ]
     },

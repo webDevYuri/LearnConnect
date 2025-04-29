@@ -4,6 +4,7 @@ using LearnConnect.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using System.IO;
+using Microsoft.EntityFrameworkCore;
 
 namespace LearnConnect.Controllers
 {
@@ -41,7 +42,19 @@ namespace LearnConnect.Controllers
             var redirect = RedirectIfNotLoggedIn();
             if (redirect != null) return redirect;
 
-            return View();
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+            
+            var posts = _context.Posts
+                .Include(p => p.UserProfile)
+                .Include(p => p.Likes)
+                .Include(p => p.Comments)
+                    .ThenInclude(c => c.UserProfile)
+                .OrderByDescending(p => p.CreatedAt)
+                .ToList();
+
+            ViewBag.UserProfile = userProfile;
+            return View(posts);
         }
 
         public IActionResult News()
@@ -356,6 +369,93 @@ namespace LearnConnect.Controllers
             catch (Exception ex)
             {
                 return Json(new { success = false, message = "An error occurred while uploading the photo. Please try again." });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreatePost(string content, IFormFile mediaFile)
+        {
+            var redirect = RedirectIfNotLoggedIn();
+            if (redirect != null) return redirect;
+
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+
+            if (userProfile == null)
+            {
+                TempData["Error"] = "User not found.";
+                return RedirectToAction("Dashboard");
+            }
+
+            if (string.IsNullOrWhiteSpace(content) && mediaFile == null)
+            {
+                TempData["Error"] = "Post must contain either text or media.";
+                return RedirectToAction("Dashboard");
+            }
+
+            try
+            {
+                var post = new Post
+                {
+                    Content = content ?? "", 
+                    UserProfileId = userProfile.Id,
+                    CreatedAt = DateTime.Now
+                };
+
+                if (mediaFile != null && mediaFile.Length > 0)  
+                {
+                    if (mediaFile.Length > 50 * 1024 * 1024)
+                    {
+                        TempData["Error"] = "Media file must be less than 10MB.";
+                        return RedirectToAction("Dashboard");
+                    }
+
+                    var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".mp4", ".mov" };
+                    var fileExtension = Path.GetExtension(mediaFile.FileName).ToLowerInvariant();
+
+                    if (!allowedExtensions.Contains(fileExtension))
+                    {
+                        TempData["Error"] = "Only JPG, JPEG, PNG, GIF, MP4, and MOV files are allowed.";
+                        return RedirectToAction("Dashboard");
+                    }
+
+                    try
+                    {
+                        var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "posts");
+                        if (!Directory.Exists(uploadsFolder))
+                        {
+                            Directory.CreateDirectory(uploadsFolder);
+                        }
+
+                        var uniqueFileName = $"{userProfile.Id}_{DateTime.Now.Ticks}{fileExtension}";
+                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await mediaFile.CopyToAsync(stream);
+                        }
+
+                        bool isVideo = fileExtension == ".mp4" || fileExtension == ".mov";
+                        post.MediaPath = $"/uploads/posts/{uniqueFileName}";
+                        post.MediaType = isVideo ? "video" : "image";
+                    }
+                    catch (Exception ex)
+                    {
+                        TempData["Error"] = $"Error uploading media: {ex.Message}";
+                        return RedirectToAction("Dashboard");
+                    }
+                }
+
+                _context.Posts.Add(post);
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Post created successfully.";
+                return RedirectToAction("Dashboard");
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = $"Error creating post: {ex.Message}";
+                return RedirectToAction("Dashboard");
             }
         }
 
