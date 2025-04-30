@@ -24,3 +24,10 @@
 input[type="file"]::-webkit-file-upload-button {
     display: none;
 }
+
+@media (max-width: 576px) {
+    .post-actions .btn {
+        width: 80px !important;
+        font-size: 11px
+    }
+}

@@ -13,7 +13,7 @@ namespace LearnConnect.Models
 
         public string? MediaPath { get; set; }
 
-        public string? MediaType { get; set; } 
+        public string? MediaType { get; set; }
 
         [Required]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
@@ -27,4 +27,4 @@ namespace LearnConnect.Models
         public ICollection<PostLike> Likes { get; set; } = new List<PostLike>();
         public ICollection<PostComment> Comments { get; set; } = new List<PostComment>();
     }
-} 
+}

@@ -44,7 +44,7 @@ namespace LearnConnect.Controllers
 
             var userEmail = HttpContext.Session.GetString("UserEmail");
             var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
-            
+
             var posts = _context.Posts
                 .Include(p => p.UserProfile)
                 .Include(p => p.Likes)
@@ -178,7 +178,6 @@ namespace LearnConnect.Controllers
                     {
                         Directory.CreateDirectory(uploadsFolder);
                     }
-
 
                     if (!string.IsNullOrEmpty(existingProfile.ProfilePhotoPath))
                     {
@@ -398,12 +397,12 @@ namespace LearnConnect.Controllers
             {
                 var post = new Post
                 {
-                    Content = content ?? "", 
+                    Content = content ?? "",
                     UserProfileId = userProfile.Id,
                     CreatedAt = DateTime.Now
                 };
 
-                if (mediaFile != null && mediaFile.Length > 0)  
+                if (mediaFile != null && mediaFile.Length > 0)
                 {
                     if (mediaFile.Length > 50 * 1024 * 1024)
                     {
@@ -459,5 +458,39 @@ namespace LearnConnect.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeletePost(int postId)
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+
+            if (userProfile == null)
+            {
+                TempData["Error"] = "Session expired. Please sign in again.";
+                return RedirectToAction("Dashboard");
+            }
+
+            var post = _context.Posts.FirstOrDefault(p => p.Id == postId && p.UserProfileId == userProfile.Id);
+
+            if (post == null)
+            {
+                TempData["Error"] = "You are not authorized to delete this post.";
+                return RedirectToAction("Dashboard");
+            }
+
+            try
+            {
+                _context.Posts.Remove(post);
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Post deleted successfully.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "An error occurred while deleting the post. Please try again.";
+            }
+
+            return RedirectToAction("Dashboard");
+        }
     }
 }
