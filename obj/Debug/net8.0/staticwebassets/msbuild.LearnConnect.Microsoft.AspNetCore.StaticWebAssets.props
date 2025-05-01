@@ -102,8 +102,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>lfsfb90faq</Fingerprint>
-      <Integrity>sayMsV4JFBBcg/TSvCyZbCeVr7Vae0Sef2x/T42Kbxw=</Integrity>
+      <Fingerprint>2tqibhhzo0</Fingerprint>
+      <Integrity>ygjZxe0YrRPaX4KkiANRoAYmI2lgO7DVdKAKI90jHHE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\user_layout.css'))</OriginalItemSpec>

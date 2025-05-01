@@ -7,6 +7,7 @@
 @using LearnConnect.Helpers
 @inject LcDbContext _context
 
+
 @{
     var userEmail = Context.Session.GetString("UserEmail");
     var userProfile = userEmail != null ? _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail) : null;
@@ -154,7 +155,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body px-4">
-                <form asp-action="CreatePost" asp-controller="User" method="post" enctype="multipart/form-data">
+                <form asp-action="CreatePost" asp-controller="User" id="createPostForm" method="post" enctype="multipart/form-data">
                     @Html.AntiForgeryToken()
                     <div class="d-flex align-items-center mb-3">
                         <div class="avatar me-2">
@@ -281,7 +282,7 @@
             const uploadPrompt = document.getElementById('uploadPrompt');
             const removeMedia = document.getElementById('removeMedia');
             const caption = document.getElementById('caption');
-            const form = document.querySelector('form');
+            const form = document.getElementById('createPostForm');
 
             function checkPostContent() {
                 const hasText = caption.value.trim().length > 0;

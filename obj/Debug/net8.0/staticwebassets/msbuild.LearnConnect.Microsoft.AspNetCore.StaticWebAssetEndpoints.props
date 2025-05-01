@@ -60,17 +60,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"dyl3hpwlin"},{"Name":"integrity","Value":"sha256-G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw="},{"Name":"label","Value":"_content/LearnConnect/css/user_dashboard.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1114"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Apr 2025 13:20:00 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/LearnConnect/css/user_layout.2tqibhhzo0.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\user_layout.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"2tqibhhzo0"},{"Name":"integrity","Value":"sha256-ygjZxe0YrRPaX4KkiANRoAYmI2lgO7DVdKAKI90jHHE="},{"Name":"label","Value":"_content/LearnConnect/css/user_layout.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"486"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ygjZxe0YrRPaX4KkiANRoAYmI2lgO7DVdKAKI90jHHE=\u0022"},{"Name":"Last-Modified","Value":"Wed, 30 Apr 2025 04:59:44 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/LearnConnect/css/user_layout.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\user_layout.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-sayMsV4JFBBcg/TSvCyZbCeVr7Vae0Sef2x/T42Kbxw="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"361"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sayMsV4JFBBcg/TSvCyZbCeVr7Vae0Sef2x/T42Kbxw=\u0022"},{"Name":"Last-Modified","Value":"Sat, 26 Apr 2025 07:53:53 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/LearnConnect/css/user_layout.lfsfb90faq.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\user_layout.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"lfsfb90faq"},{"Name":"integrity","Value":"sha256-sayMsV4JFBBcg/TSvCyZbCeVr7Vae0Sef2x/T42Kbxw="},{"Name":"label","Value":"_content/LearnConnect/css/user_layout.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"361"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sayMsV4JFBBcg/TSvCyZbCeVr7Vae0Sef2x/T42Kbxw=\u0022"},{"Name":"Last-Modified","Value":"Sat, 26 Apr 2025 07:53:53 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ygjZxe0YrRPaX4KkiANRoAYmI2lgO7DVdKAKI90jHHE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"486"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ygjZxe0YrRPaX4KkiANRoAYmI2lgO7DVdKAKI90jHHE=\u0022"},{"Name":"Last-Modified","Value":"Wed, 30 Apr 2025 04:59:44 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/LearnConnect/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
