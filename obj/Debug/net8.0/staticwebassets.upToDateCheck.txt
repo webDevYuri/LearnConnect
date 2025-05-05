@@ -65,15 +65,6 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
-wwwroot\uploads\posts\2_638814767519921000.jpg
-wwwroot\uploads\posts\2_638815139436180848.jpg
-wwwroot\uploads\posts\2_638815143361137453.mp4
-wwwroot\uploads\posts\2_638815144551198339.jpg
-wwwroot\uploads\posts\2_638815144794638748.jpg
-wwwroot\uploads\posts\2_638815152716452801.jpg
-wwwroot\uploads\posts\2_638815156139276571.jpg
-wwwroot\uploads\posts\2_638815158535363156.mp4
-wwwroot\uploads\posts\2_638816105788349457.mp4
 wwwroot\uploads\profile-photos\1_638812851949692738.png
 wwwroot\uploads\profile-photos\2_638813861943635465.jpg
 wwwroot\uploads\profile-photos\638812946732292280.png

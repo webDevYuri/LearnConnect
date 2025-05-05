@@ -90,14 +90,21 @@
                                 </span>
                                 <span class="text-muted ms-1" style="font-size: 0.9rem;">@post.Likes.Count</span>
                             </div>
+
                             <div class="text-muted" style="font-size: 0.9rem;">@post.Comments.Count comments</div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between px-3 gap-2 py-2 border-top border-bottom post-actions">
-                        <button class="btn btn-light d-flex shadow-sm align-items-center justify-content-center gap-2 border-0" style="width: 150px;">
-                            <i class="bi bi-hand-thumbs-up"></i>
-                            <span class="d-none d-md-block">Like</span>
-                        </button>
+                        <form asp-action="ToggleLike" asp-controller="User" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="postId" value="@post.Id" />
+                            <button type="submit" class="btn btn-light d-flex shadow-sm align-items-center justify-content-center gap-2 border-0 like-button" style="width: 150px;">
+                                <i class="bi @(post.Likes.Any(l => l.UserProfileId == userProfile?.Id) ? "bi-hand-thumbs-up-fill text-primary" : "bi-hand-thumbs-up")"></i>
+                                <span class="d-none d-md-block">
+                                    @(post.Likes.Any(l => l.UserProfileId == userProfile?.Id) ? "Unlike" : "Like")
+                                </span>
+                            </button>
+                        </form>
                         <button class="btn btn-light d-flex shadow-sm align-items-center justify-content-center gap-2 border-0" style="width: 150px;">
                             <i class="bi bi-chat"></i>
                             <span class="d-none d-md-block">Comment</span>
@@ -195,9 +202,7 @@
                             <input type="file" name="mediaFile" id="mediaFile" class="d-none" accept="image/*,video/*">
                         </div>
                     </div>
-                    <div class="modal-footer border-0 px-4 pb-4">
-                        <button type="submit" class="btn btn-primary w-100 py-2 fw-medium">Post</button>
-                    </div>
+                    <button type="submit" class="col-12 btn btn-primary py-2 fw-medium my-2">Post</button>
                 </form>
             </div>
         </div>

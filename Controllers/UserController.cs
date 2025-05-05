@@ -492,5 +492,57 @@ namespace LearnConnect.Controllers
 
             return RedirectToAction("Dashboard");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ToggleLike(int postId)
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+
+            if (userProfile == null)
+            {
+                TempData["Error"] = "Session expired. Please sign in again.";
+                return RedirectToAction("Dashboard");
+            }
+
+            var post = _context.Posts.Include(p => p.Likes).FirstOrDefault(p => p.Id == postId);
+            if (post == null)
+            {
+                TempData["Error"] = "Post not found.";
+                return RedirectToAction("Dashboard");
+            }
+
+            var existingLike = post.Likes.FirstOrDefault(l => l.UserProfileId == userProfile.Id);
+
+            if (existingLike != null)
+            {
+                _context.PostLikes.Remove(existingLike);
+                TempData["Success"] = "You unliked the post.";
+            }
+            else
+            {
+                var newLike = new PostLike
+                {
+                    PostId = postId,
+                    UserProfileId = userProfile.Id,
+                    CreatedAt = DateTime.Now
+                };
+                _context.PostLikes.Add(newLike);
+                TempData["Success"] = "You liked the post.";
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                TempData["Error"] = "An error occurred while updating the like status.";
+            }
+
+            return RedirectToAction("Dashboard");
+        }
+
     }
 }
