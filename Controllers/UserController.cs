@@ -544,5 +544,46 @@ namespace LearnConnect.Controllers
             return RedirectToAction("Dashboard");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddComment(int postId, string content)
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+
+            if (userProfile == null)
+            {
+                TempData["Error"] = "Session expired. Please sign in again.";
+                return RedirectToAction("Dashboard", "User");
+            }
+
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                TempData["Error"] = "Comment content cannot be empty.";
+                return RedirectToAction("Dashboard", "User");
+            }
+
+            var post = _context.Posts.FirstOrDefault(p => p.Id == postId);
+            if (post == null)
+            {
+                TempData["Error"] = "Post not found.";
+                return RedirectToAction("Dashboard", "User");
+            }
+
+            var comment = new PostComment
+            {
+                Content = content,
+                PostId = postId,
+                UserProfileId = userProfile.Id,
+                CreatedAt = DateTime.Now
+            };
+
+            _context.PostComments.Add(comment);
+            await _context.SaveChangesAsync();
+
+            TempData["Success"] = "Comment added successfully.";
+            return RedirectToAction("Dashboard", "User");
+        }
+
     }
 }

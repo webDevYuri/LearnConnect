@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kglxfQ6SKPnWYVhHrsZkf8iHPoTCYzFvnkcvKw2an5U=",
+  "Hash": "5qGk+XI47bBpseq6aWjLiCuBSYAZtmyOmyymJqlYxGo=",
   "Source": "LearnConnect",
   "BasePath": "_content/LearnConnect",
   "Mode": "Default",
@@ -1466,6 +1466,69 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820745447201402.jpg",
+      "SourceId": "LearnConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
+      "BasePath": "_content/LearnConnect",
+      "RelativePath": "uploads/posts/3_638820745447201402#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gctl34tzw9",
+      "Integrity": "MHWdBIfNoJ/RJdtlJZp+B4QoY61uZaIogvfLmIyNR9g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\posts\\3_638820745447201402.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820786108105034.jpg",
+      "SourceId": "LearnConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
+      "BasePath": "_content/LearnConnect",
+      "RelativePath": "uploads/posts/3_638820786108105034#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8oh2wfjrn0",
+      "Integrity": "+HGLREtcTfwJIlgiaLWSCl6FCIkSCtjJJiq9yL59W6s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\posts\\3_638820786108105034.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820787917307457.jpg",
+      "SourceId": "LearnConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
+      "BasePath": "_content/LearnConnect",
+      "RelativePath": "uploads/posts/3_638820787917307457#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sma5gkpzb0",
+      "Integrity": "FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\posts\\3_638820787917307457.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\1_638812851949692738.png",
       "SourceId": "LearnConnect",
       "SourceType": "Discovered",
@@ -1508,12 +1571,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\2_638813861943635465.jpg"
     },
     {
-      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\638812946732292280.png",
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\3_638820787265660752.jpg",
       "SourceId": "LearnConnect",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
       "BasePath": "_content/LearnConnect",
-      "RelativePath": "uploads/profile-photos/638812946732292280#[.{fingerprint}]?.png",
+      "RelativePath": "uploads/profile-photos/3_638820787265660752#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1522,11 +1585,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "km5nmrlj13",
-      "Integrity": "PK7bztDWXlJZ+v1g0MWHuGMUDso0Gm7s2q3cfyLvm2Q=",
+      "Fingerprint": "sma5gkpzb0",
+      "Integrity": "FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\638812946732292280.png"
+      "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\3_638820787265660752.jpg"
     }
   ],
   "Endpoints": [
@@ -1881,7 +1944,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 13:20:00 GMT"
+          "Value": "Mon, 05 May 2025 13:33:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1918,7 +1981,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 13:20:00 GMT"
+          "Value": "Mon, 05 May 2025 13:33:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7189,6 +7252,252 @@
       ]
     },
     {
+      "Route": "uploads/posts/3_638820745447201402.gctl34tzw9.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820745447201402.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2025405"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MHWdBIfNoJ/RJdtlJZp+B4QoY61uZaIogvfLmIyNR9g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 12:42:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gctl34tzw9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/posts/3_638820745447201402.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MHWdBIfNoJ/RJdtlJZp+B4QoY61uZaIogvfLmIyNR9g="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/3_638820745447201402.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820745447201402.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2025405"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MHWdBIfNoJ/RJdtlJZp+B4QoY61uZaIogvfLmIyNR9g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 12:42:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MHWdBIfNoJ/RJdtlJZp+B4QoY61uZaIogvfLmIyNR9g="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/3_638820786108105034.8oh2wfjrn0.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820786108105034.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "218921"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+HGLREtcTfwJIlgiaLWSCl6FCIkSCtjJJiq9yL59W6s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:50:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8oh2wfjrn0"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/posts/3_638820786108105034.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+HGLREtcTfwJIlgiaLWSCl6FCIkSCtjJJiq9yL59W6s="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/3_638820786108105034.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820786108105034.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "218921"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+HGLREtcTfwJIlgiaLWSCl6FCIkSCtjJJiq9yL59W6s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:50:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+HGLREtcTfwJIlgiaLWSCl6FCIkSCtjJJiq9yL59W6s="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/3_638820787917307457.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820787917307457.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "518557"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:53:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/3_638820787917307457.sma5gkpzb0.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820787917307457.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "518557"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:53:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sma5gkpzb0"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/posts/3_638820787917307457.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo="
+        }
+      ]
+    },
+    {
       "Route": "uploads/profile-photos/1_638812851949692738.km5nmrlj13.png",
       "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\1_638812851949692738.png",
       "Selectors": [],
@@ -7353,8 +7662,8 @@
       ]
     },
     {
-      "Route": "uploads/profile-photos/638812946732292280.km5nmrlj13.png",
-      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\638812946732292280.png",
+      "Route": "uploads/profile-photos/3_638820787265660752.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\3_638820787265660752.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7363,64 +7672,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "99883"
+          "Value": "518557"
         },
         {
           "Name": "Content-Type",
-          "Value": "image/png"
+          "Value": "image/jpeg"
         },
         {
           "Name": "ETag",
-          "Value": "\"PK7bztDWXlJZ+v1g0MWHuGMUDso0Gm7s2q3cfyLvm2Q=\""
+          "Value": "\"FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 12:04:33 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "km5nmrlj13"
-        },
-        {
-          "Name": "label",
-          "Value": "uploads/profile-photos/638812946732292280.png"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-PK7bztDWXlJZ+v1g0MWHuGMUDso0Gm7s2q3cfyLvm2Q="
-        }
-      ]
-    },
-    {
-      "Route": "uploads/profile-photos/638812946732292280.png",
-      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\638812946732292280.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "99883"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"PK7bztDWXlJZ+v1g0MWHuGMUDso0Gm7s2q3cfyLvm2Q=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 12:04:33 GMT"
+          "Value": "Mon, 05 May 2025 13:52:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7430,7 +7694,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-PK7bztDWXlJZ+v1g0MWHuGMUDso0Gm7s2q3cfyLvm2Q="
+          "Value": "sha256-FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/profile-photos/3_638820787265660752.sma5gkpzb0.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\3_638820787265660752.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "518557"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:52:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sma5gkpzb0"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/profile-photos/3_638820787265660752.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo="
         }
       ]
     }

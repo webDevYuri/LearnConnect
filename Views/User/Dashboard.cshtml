@@ -94,7 +94,7 @@
                             <div class="text-muted" style="font-size: 0.9rem;">@post.Comments.Count comments</div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between px-3 gap-2 py-2 border-top border-bottom post-actions">
+                    <div class="d-flex justify-content-between p-3 gap-2 border-top border-bottom post-actions">
                         <form asp-action="ToggleLike" asp-controller="User" method="post" class="d-inline">
                             @Html.AntiForgeryToken()
                             <input type="hidden" name="postId" value="@post.Id" />
@@ -105,7 +105,7 @@
                                 </span>
                             </button>
                         </form>
-                        <button class="btn btn-light d-flex shadow-sm align-items-center justify-content-center gap-2 border-0" style="width: 150px;">
+                        <button class="btn btn-light d-flex shadow-sm align-items-center justify-content-center gap-2 border-0" data-bs-toggle="modal" data-bs-target="#commentModal-@post.Id" style="width: 150px;">
                             <i class="bi bi-chat"></i>
                             <span class="d-none d-md-block">Comment</span>
                         </button>
@@ -128,24 +128,134 @@
                             </button>
                         }
                     </div>
-                    <div class="p-3">
-                        <div class="d-flex gap-2">
-                            @if (userProfile?.ProfilePhotoPath != null)
-                            {
-                                <img src="@userProfile.ProfilePhotoPath" class="rounded-circle shadow-sm" style="width: 32px; height: 32px; object-fit: cover;" alt="Profile Photo" />
-                            }
-                            else
-                            {
-                                <i class="bi bi-person-circle fs-4"></i>
-                            }
-                            <div class="position-relative flex-grow-1">
-                                <form>
-                                    <input type="text" class="form-control bg-light border-0 position-relative" placeholder="Write a comment..." />
-                                    <button type="submit" class="btn position-absolute" style="right: 0; top: -3px;">
-                                        <i class="bi bi-send fs-5"></i>
-                                    </button>
-                                </form>
+                </div>
+            </div>
+            <div class="modal fade" id="commentModal-@post.Id" tabindex="-1" aria-labelledby="commentModalLabel-@post.Id" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content border-0 shadow rounded-3 overflow-hidden">
+                        <div class="modal-header bg-white border-bottom border-light py-2">
+                            <h5 class="modal-title fw-bold d-flex align-items-center" id="commentModalLabel-@post.Id">
+                                <i class="bi bi-chat-square-text-fill me-2 text-primary"></i>
+                                <span>Comments</span>
+                            </h5>
+                            <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="px-3 pt-2 pb-2 border-bottom border-light">
+                            <div class="card border-0 bg-light rounded-3 shadow-sm">
+                                <div class="card-body p-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        @if (post.UserProfile.ProfilePhotoPath != null)
+                                        {
+                                            <img src="@post.UserProfile.ProfilePhotoPath" class="rounded-circle me-2 border" width="36" height="36" style="object-fit: cover;" alt="@post.UserProfile.FirstName's profile" />
+                                        }
+                                        else
+                                        {
+                                            <div class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center me-2" style="width: 36px; height: 36px;">
+                                                <i class="bi bi-person text-primary"></i>
+                                            </div>
+                                        }
+                                        <div>
+                                            <h6 class="mb-0 fs-6 fw-semibold">@post.UserProfile.FirstName @post.UserProfile.LastName</h6>
+                                            <div class="text-muted d-flex align-items-center" style="font-size: 0.75rem;">
+                                                <i class="bi bi-clock me-1"></i>
+                                                <span>@TimeHelper.TimeAgo(post.CreatedAt)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="mb-2 small">@post.Content</p>
+                                    @if (!string.IsNullOrEmpty(post.MediaPath))
+                                    {
+                                        <div class="text-center rounded-3 overflow-hidden">
+                                            @if (post.MediaType == "image")
+                                            {
+                                                <img src="@post.MediaPath" class="img-fluid rounded-3 w-100" alt="Post image" />
+                                            }
+                                            else if (post.MediaType == "video")
+                                            {
+                                                <video src="@post.MediaPath" class="img-fluid rounded-3 w-100" controls></video>
+                                            }
+                                        </div>
+                                    }
+                                </div>
                             </div>
+                        </div>
+                        <div class="modal-body py-2 px-3" style="height: 300px; overflow-y: auto; scrollbar-width: thin;">
+                            <div class="comments-container">
+                                @{
+                                    var commentsList = post.Comments.ToList();
+                                }
+                                @foreach (var comment in commentsList)
+                                {
+                                    <div class="comment-item mb-2 p-2 rounded-3 @(commentsList.IndexOf(comment) % 2 == 0 ? "bg-light" : "bg-white border")">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                @if (comment.UserProfile.ProfilePhotoPath != null)
+                                                {
+                                                    <img src="@comment.UserProfile.ProfilePhotoPath" alt="@comment.UserProfile.FirstName's avatar" class="rounded-circle" width="32" height="32" style="object-fit: cover;">
+                                                }
+                                                else
+                                                {
+                                                    <div class="rounded-circle bg-secondary bg-opacity-10 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                                        <i class="bi bi-person text-secondary"></i>
+                                                    </div>
+                                                }
+                                            </div>
+                                            <div class="flex-grow-1 ms-2">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h6 class="mb-0 small fw-semibold">@comment.UserProfile.FirstName @comment.UserProfile.LastName</h6>
+                                                    <small class="text-muted" style="font-size: 0.7rem;">
+                                                        <i class="bi bi-clock me-1"></i>
+                                                        <span>@TimeHelper.TimeAgo(comment.CreatedAt)</span>
+                                                    </small>
+                                                </div>
+                                                <p class="mb-0 small">@comment.Content</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                @if (!commentsList.Any())
+                                {
+                                    <div class="text-center text-muted py-4">
+                                        <div class="mb-2">
+                                            <i class="bi bi-chat-square-text fs-3 text-secondary opacity-50"></i>
+                                        </div>
+                                        <p class="mb-0 small">No comments yet. Be the first to comment!</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="modal-footer border-top bg-white p-3">
+                            <form asp-action="AddComment" method="post" id="commentForm-@post.Id" class="w-100">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="PostId" value="@post.Id" />
+                                <div class="d-flex w-100">
+                                    @if (userProfile?.ProfilePhotoPath != null)
+                                    {
+                                        <img src="@userProfile.ProfilePhotoPath" class="rounded-circle me-2 align-self-start mt-1" width="36" height="36" style="object-fit: cover;" alt="Your profile" />
+                                    }
+                                    else
+                                    {
+                                        <div class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center me-2 align-self-start mt-1" style="width: 36px; height: 36px;">
+                                            <i class="bi bi-person text-primary"></i>
+                                        </div>
+                                    }
+                                    <div class="flex-grow-1 position-relative">
+                                        <div class="position-relative">
+                                            <textarea class="form-control rounded-3 shadow-sm border-light bg-light"
+                                                      id="commentContent-@post.Id"
+                                                      name="Content"
+                                                      style="resize: none; height: 80px; padding-bottom: 35px;"
+                                                      placeholder="Write a comment as @userProfile?.FirstName..."
+                                                      required></textarea>
+                                            <button type="submit"
+                                                    class="btn btn-primary btn-sm rounded-circle position-absolute end-0 bottom-0 m-2 shadow-sm"
+                                                    style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                                <i class="bi bi-send-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -222,7 +332,6 @@
                 });
             </text>
         }
-
         @if (TempData["Error"] != null)
         {
             <text>
