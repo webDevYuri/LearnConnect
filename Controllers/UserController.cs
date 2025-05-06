@@ -5,6 +5,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
+using NewsAPI.Constants;
+using NewsAPI.Models;
+using NewsAPI;
+using static LearnConnect.Controllers.UserController;
 
 namespace LearnConnect.Controllers
 {
@@ -13,12 +18,14 @@ namespace LearnConnect.Controllers
         private readonly LcDbContext _context;
         private readonly IPasswordHasher<UserProfile> _hasher;
         private readonly IWebHostEnvironment _environment;
+        private readonly INewsService _newsService;
 
-        public UserController(LcDbContext context, IPasswordHasher<UserProfile> hasher, IWebHostEnvironment environment)
+        public UserController(LcDbContext context, IPasswordHasher<UserProfile> hasher, IWebHostEnvironment environment, INewsService newsService)
         {
             _context = context;
             _hasher = hasher;
             _environment = environment;
+            _newsService = newsService;
         }
 
         private IActionResult RedirectIfNotLoggedIn()
@@ -57,12 +64,93 @@ namespace LearnConnect.Controllers
             return View(posts);
         }
 
-        public IActionResult News()
+        public async Task<IActionResult> News()
         {
             var redirect = RedirectIfNotLoggedIn();
             if (redirect != null) return redirect;
 
-            return View();
+            var articles = await _newsService.GetTechnologyHeadlinesAsync();
+            return View(articles.ToList());
+        }
+
+
+        public interface INewsService
+        {
+            Task<IEnumerable<ArticleViewModel>> GetTechnologyHeadlinesAsync();
+        }
+
+
+        public class NewsService : INewsService
+        {
+            private readonly NewsApiClient _client;
+            private readonly IMemoryCache _cache;
+            private const string CacheKey = "TechHeadlines";
+            private const string DEFAULT_IMAGE = "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
+            public NewsService(string apiKey, IMemoryCache cache)
+            {
+                _client = new NewsApiClient(apiKey);
+                _cache = cache;
+            }
+
+            public async Task<IEnumerable<ArticleViewModel>> GetTechnologyHeadlinesAsync()
+            {
+                if (_cache.TryGetValue(CacheKey, out List<ArticleViewModel> cached))
+                    return cached;
+
+                var response = await _client.GetTopHeadlinesAsync(new TopHeadlinesRequest
+                {
+                    Category = Categories.Technology,
+                    PageSize = 12
+                });
+
+                if (response.Status != Statuses.Ok)
+                    return Enumerable.Empty<ArticleViewModel>();
+
+                var articles = response.Articles.Select(a => new ArticleViewModel
+                {
+                    Title = a.Title,
+                    Description = a.Description,
+                    Url = a.Url,
+                    ImageUrl = GetImageUrl(a),
+                    PublishedAt = a.PublishedAt ?? DateTime.UtcNow,
+                    Source = a.Source?.Name ?? "Unknown Source"
+                }).ToList();
+
+                _cache.Set(CacheKey, articles, TimeSpan.FromMinutes(30));
+
+                return articles;
+            }
+
+            private string GetImageUrl(Article article)
+            {
+                if (!string.IsNullOrWhiteSpace(article.UrlToImage) &&
+                    Uri.IsWellFormedUriString(article.UrlToImage, UriKind.Absolute))
+                {
+                    return article.UrlToImage;
+                }
+
+                return DEFAULT_IMAGE;
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RefreshNews()
+        {
+            var redirect = RedirectIfNotLoggedIn();
+            if (redirect != null) return redirect;
+
+            var cacheField = typeof(NewsService).GetField("CacheKey", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+            string cacheKey = cacheField?.GetValue(null) as string ?? "TechHeadlines";
+
+            if (!string.IsNullOrEmpty(cacheKey))
+            {
+                var cache = HttpContext.RequestServices.GetService<IMemoryCache>();
+                cache?.Remove(cacheKey);
+            }
+
+            var articles = await _newsService.GetTechnologyHeadlinesAsync();
+            return Ok(new { success = true, count = articles.Count() });
         }
 
         public IActionResult Question()
@@ -98,7 +186,7 @@ namespace LearnConnect.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateProfile(UserProfile model, string currentPassword, string newPassword, string confirmNewPassword, IFormFile profilePhoto)
+        public async Task<IActionResult> UpdateProfile(UserProfile model, string? currentPassword = null, string? newPassword = null, string? confirmNewPassword = null, IFormFile? profilePhoto = null)
         {
             var userEmail = HttpContext.Session.GetString("UserEmail");
             if (string.IsNullOrEmpty(userEmail))
@@ -131,8 +219,14 @@ namespace LearnConnect.Controllers
                 return View(model);
             }
 
-            if (!string.IsNullOrEmpty(currentPassword) && !string.IsNullOrEmpty(newPassword))
+            if (!string.IsNullOrEmpty(currentPassword) || !string.IsNullOrEmpty(newPassword) || !string.IsNullOrEmpty(confirmNewPassword))
             {
+                if (string.IsNullOrEmpty(currentPassword) || string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(confirmNewPassword))
+                {
+                    ModelState.AddModelError("", "All password fields are required to change the password.");
+                    return View(model);
+                }
+
                 var result = _hasher.VerifyHashedPassword(existingProfile, existingProfile.PasswordHash, currentPassword);
                 if (result == PasswordVerificationResult.Failed)
                 {
@@ -198,7 +292,7 @@ namespace LearnConnect.Controllers
 
                     existingProfile.ProfilePhotoPath = $"/uploads/profile-photos/{uniqueFileName}";
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     ModelState.AddModelError("", "An error occurred while uploading the profile photo. Please try again.");
                     return View(model);
@@ -229,7 +323,7 @@ namespace LearnConnect.Controllers
                 TempData["Success"] = "Profile updated successfully.";
                 return RedirectToAction("UpdateProfile");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ModelState.AddModelError("", "An error occurred while saving your profile. Please try again.");
                 return View(model);

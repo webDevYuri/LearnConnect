@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5qGk+XI47bBpseq6aWjLiCuBSYAZtmyOmyymJqlYxGo=",
+  "Hash": "A6nkZZbprBOPWNztljGNgAu5Mg/xa5kmNYSPngxjGN8=",
   "Source": "LearnConnect",
   "BasePath": "_content/LearnConnect",
   "Mode": "Default",
@@ -178,8 +178,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "2tqibhhzo0",
-      "Integrity": "ygjZxe0YrRPaX4KkiANRoAYmI2lgO7DVdKAKI90jHHE=",
+      "Fingerprint": "kotn3or3v8",
+      "Integrity": "/FaCrXLJ85rm0sEupb8HIyJllhxkjSc2T+x5aIYkwk0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\user_layout.css"
@@ -1466,6 +1466,27 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\2_638821422468285794.mp4",
+      "SourceId": "LearnConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
+      "BasePath": "_content/LearnConnect",
+      "RelativePath": "uploads/posts/2_638821422468285794#[.{fingerprint}]?.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "a29sble3yn",
+      "Integrity": "HuTWFZW24vfmpSEDRRM80Qo8OeZPgOOlXKq50t0iC1M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\posts\\2_638821422468285794.mp4"
+    },
+    {
       "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820745447201402.jpg",
       "SourceId": "LearnConnect",
       "SourceType": "Discovered",
@@ -1529,6 +1550,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\posts\\3_638820787917307457.jpg"
     },
     {
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\4_638821424995022609.png",
+      "SourceId": "LearnConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
+      "BasePath": "_content/LearnConnect",
+      "RelativePath": "uploads/posts/4_638821424995022609#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "pnie97osty",
+      "Integrity": "CwUHd3xHzhX5bMkAgkLL3TMxgX4mvvzR6M1VIwZojTo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\posts\\4_638821424995022609.png"
+    },
+    {
       "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\1_638812851949692738.png",
       "SourceId": "LearnConnect",
       "SourceType": "Discovered",
@@ -1590,6 +1632,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\3_638820787265660752.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\638821424111857334.jpg",
+      "SourceId": "LearnConnect",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\",
+      "BasePath": "_content/LearnConnect",
+      "RelativePath": "uploads/profile-photos/638821424111857334#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1i7ea20111",
+      "Integrity": "hxAN5pxb96i9WdojjKKkyyypyf8CUMRNQRkRvmj8StQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\profile-photos\\638821424111857334.jpg"
     }
   ],
   "Endpoints": [
@@ -2004,51 +2067,6 @@
       ]
     },
     {
-      "Route": "css/user_layout.2tqibhhzo0.css",
-      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_layout.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "486"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ygjZxe0YrRPaX4KkiANRoAYmI2lgO7DVdKAKI90jHHE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 30 Apr 2025 04:59:44 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "2tqibhhzo0"
-        },
-        {
-          "Name": "label",
-          "Value": "css/user_layout.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ygjZxe0YrRPaX4KkiANRoAYmI2lgO7DVdKAKI90jHHE="
-        }
-      ]
-    },
-    {
       "Route": "css/user_layout.css",
       "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_layout.css",
       "Selectors": [],
@@ -2059,7 +2077,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "486"
+          "Value": "592"
         },
         {
           "Name": "Content-Type",
@@ -2067,11 +2085,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ygjZxe0YrRPaX4KkiANRoAYmI2lgO7DVdKAKI90jHHE=\""
+          "Value": "\"/FaCrXLJ85rm0sEupb8HIyJllhxkjSc2T+x5aIYkwk0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Apr 2025 04:59:44 GMT"
+          "Value": "Tue, 06 May 2025 08:56:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2081,7 +2099,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ygjZxe0YrRPaX4KkiANRoAYmI2lgO7DVdKAKI90jHHE="
+          "Value": "sha256-/FaCrXLJ85rm0sEupb8HIyJllhxkjSc2T+x5aIYkwk0="
+        }
+      ]
+    },
+    {
+      "Route": "css/user_layout.kotn3or3v8.css",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_layout.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "592"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/FaCrXLJ85rm0sEupb8HIyJllhxkjSc2T+x5aIYkwk0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 08:56:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kotn3or3v8"
+        },
+        {
+          "Name": "label",
+          "Value": "css/user_layout.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/FaCrXLJ85rm0sEupb8HIyJllhxkjSc2T+x5aIYkwk0="
         }
       ]
     },
@@ -2436,7 +2499,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 11:59:22 GMT"
+          "Value": "Tue, 06 May 2025 08:36:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2473,7 +2536,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 11:59:22 GMT"
+          "Value": "Tue, 06 May 2025 08:36:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2510,7 +2573,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 11:59:22 GMT"
+          "Value": "Tue, 06 May 2025 08:36:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2555,7 +2618,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 11:59:22 GMT"
+          "Value": "Tue, 06 May 2025 08:36:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7252,6 +7315,88 @@
       ]
     },
     {
+      "Route": "uploads/posts/2_638821422468285794.a29sble3yn.mp4",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\2_638821422468285794.mp4",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25234878"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "video/mp4"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HuTWFZW24vfmpSEDRRM80Qo8OeZPgOOlXKq50t0iC1M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 07:30:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "a29sble3yn"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/posts/2_638821422468285794.mp4"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HuTWFZW24vfmpSEDRRM80Qo8OeZPgOOlXKq50t0iC1M="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/2_638821422468285794.mp4",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\2_638821422468285794.mp4",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25234878"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "video/mp4"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HuTWFZW24vfmpSEDRRM80Qo8OeZPgOOlXKq50t0iC1M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 07:30:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HuTWFZW24vfmpSEDRRM80Qo8OeZPgOOlXKq50t0iC1M="
+        }
+      ]
+    },
+    {
       "Route": "uploads/posts/3_638820745447201402.gctl34tzw9.jpg",
       "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820745447201402.jpg",
       "Selectors": [],
@@ -7498,6 +7643,88 @@
       ]
     },
     {
+      "Route": "uploads/posts/4_638821424995022609.png",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\4_638821424995022609.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1678692"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CwUHd3xHzhX5bMkAgkLL3TMxgX4mvvzR6M1VIwZojTo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 07:34:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CwUHd3xHzhX5bMkAgkLL3TMxgX4mvvzR6M1VIwZojTo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/4_638821424995022609.pnie97osty.png",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\4_638821424995022609.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1678692"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CwUHd3xHzhX5bMkAgkLL3TMxgX4mvvzR6M1VIwZojTo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 07:34:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pnie97osty"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/posts/4_638821424995022609.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CwUHd3xHzhX5bMkAgkLL3TMxgX4mvvzR6M1VIwZojTo="
+        }
+      ]
+    },
+    {
       "Route": "uploads/profile-photos/1_638812851949692738.km5nmrlj13.png",
       "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\1_638812851949692738.png",
       "Selectors": [],
@@ -7740,6 +7967,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-FPWottmYYdZuLS7hui34zGlde68i5eUzeFMEGIMntxo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/profile-photos/638821424111857334.1i7ea20111.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\638821424111857334.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "80028"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hxAN5pxb96i9WdojjKKkyyypyf8CUMRNQRkRvmj8StQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 07:33:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1i7ea20111"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/profile-photos/638821424111857334.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hxAN5pxb96i9WdojjKKkyyypyf8CUMRNQRkRvmj8StQ="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/profile-photos/638821424111857334.jpg",
+      "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\638821424111857334.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "80028"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hxAN5pxb96i9WdojjKKkyyypyf8CUMRNQRkRvmj8StQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 07:33:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hxAN5pxb96i9WdojjKKkyyypyf8CUMRNQRkRvmj8StQ="
         }
       ]
     }

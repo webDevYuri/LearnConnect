@@ -273,6 +273,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\2_638821422468285794.mp4",
+      "PackagePath": "staticwebassets\\uploads\\posts\\2_638821422468285794.mp4"
+    },
+    {
       "Id": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\3_638820745447201402.jpg",
       "PackagePath": "staticwebassets\\uploads\\posts\\3_638820745447201402.jpg"
     },
@@ -285,6 +289,10 @@
       "PackagePath": "staticwebassets\\uploads\\posts\\3_638820787917307457.jpg"
     },
     {
+      "Id": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\posts\\4_638821424995022609.png",
+      "PackagePath": "staticwebassets\\uploads\\posts\\4_638821424995022609.png"
+    },
+    {
       "Id": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\1_638812851949692738.png",
       "PackagePath": "staticwebassets\\uploads\\profile-photos\\1_638812851949692738.png"
     },
@@ -295,6 +303,10 @@
     {
       "Id": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\3_638820787265660752.jpg",
       "PackagePath": "staticwebassets\\uploads\\profile-photos\\3_638820787265660752.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\uploads\\profile-photos\\638821424111857334.jpg",
+      "PackagePath": "staticwebassets\\uploads\\profile-photos\\638821424111857334.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.LearnConnect.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

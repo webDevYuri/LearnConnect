@@ -2,6 +2,8 @@ using LearnConnect.Data;
 using LearnConnect.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
+using static LearnConnect.Controllers.UserController;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,12 @@ builder.Services.AddSession(options =>
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IPasswordHasher<UserProfile>, PasswordHasher<UserProfile>>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddMemoryCache();
+
+var newsApiKey = builder.Configuration["NewsApi:ApiKey"];
+builder.Services.AddSingleton<INewsService>(sp =>
+    new NewsService(newsApiKey, sp.GetRequiredService<IMemoryCache>()));
+
 
 builder.Services.AddDbContext<LcDbContext>(options =>
 {

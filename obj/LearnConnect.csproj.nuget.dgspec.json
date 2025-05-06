@@ -64,6 +64,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "NewsAPI": {
+              "target": "Package",
+              "version": "[0.7.0, )"
+            },
             "System.Linq": {
               "target": "Package",
               "version": "[4.3.0, )"

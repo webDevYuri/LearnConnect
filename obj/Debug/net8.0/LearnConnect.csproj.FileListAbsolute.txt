@@ -140,3 +140,5 @@ C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\obj\Debug\net8.0\LearnC
 C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\obj\Debug\net8.0\ref\LearnConnect.dll
 C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\obj\Debug\net8.0\scopedcss\Views\Shared\Signin_Signup.cshtml.rz.scp.css
 C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\obj\Debug\net8.0\LearnConnect.sourcelink.json
+C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\bin\Debug\net8.0\NewsAPI.dll
+C:\Users\Yuri Gonzaga\Desktop\Learn Connect\LearnConnect\bin\Debug\net8.0\Newtonsoft.Json.dll
