@@ -4,6 +4,7 @@ using LearnConnect.Data;
 using Microsoft.AspNetCore.Identity;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using System.Text.RegularExpressions;
 
 namespace LearnConnect.Controllers
 {
@@ -63,28 +64,47 @@ namespace LearnConnect.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Signup(UserProfile model, string confirmPassword)
         {
-            ModelState.Clear();
+            var phonePattern = new Regex(@"^09\d{9}$");
+            if (string.IsNullOrWhiteSpace(model.Phone) || !phonePattern.IsMatch(model.Phone))
+            {
+                ModelState.AddModelError("Phone", "Phone must start with 09 and be exactly 11 digits.");
+            }
+
+            var passPattern = new Regex(@"^(?=.*[A-Za-z])(?=.*\d).{8,}$");
+            if (string.IsNullOrWhiteSpace(model.PasswordHash) || !passPattern.IsMatch(model.PasswordHash))
+            {
+                ModelState.AddModelError("PasswordHash",
+                    "Password must be at least 8 characters and include both letters and numbers.");
+            }
 
             if (model.PasswordHash != confirmPassword)
             {
-                ModelState.AddModelError("", "Passwords do not match");
-                return View(model);
+                ModelState.AddModelError("",
+                    "Passwords do not match.");
+            }
+
+            if (model.Birthday.AddYears(18) > DateTime.Today)
+            {
+                ModelState.AddModelError("Birthday",
+                    "You must be at least 18 years old.");
             }
 
             if (string.IsNullOrWhiteSpace(model.Email) ||
-                string.IsNullOrWhiteSpace(model.PasswordHash) ||
                 string.IsNullOrWhiteSpace(model.FirstName) ||
                 string.IsNullOrWhiteSpace(model.LastName))
             {
-                ModelState.AddModelError("", "Please complete all required information");
-                return View(model);
+                ModelState.AddModelError("",
+                    "Please complete all required information.");
             }
 
             if (_context.UserProfiles.Any(u => u.Email == model.Email))
             {
-                ModelState.AddModelError("", "This email is already associated with another account");
-                return View(model);
+                ModelState.AddModelError("Email",
+                    "This email is already associated with another account.");
             }
+
+            if (!ModelState.IsValid)
+                return View(model);
 
             var userProfile = new UserProfile
             {
@@ -103,9 +123,7 @@ namespace LearnConnect.Controllers
             {
                 var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profile-photos");
                 if (!Directory.Exists(uploadsFolder))
-                {
                     Directory.CreateDirectory(uploadsFolder);
-                }
 
                 var uniqueFileName = $"{DateTime.Now.Ticks}{Path.GetExtension(model.ProfilePhoto.FileName)}";
                 var filePath = Path.Combine(uploadsFolder, uniqueFileName);
@@ -126,7 +144,7 @@ namespace LearnConnect.Controllers
                 TempData["Success"] = "Account created successfully. Please sign in to continue.";
                 return RedirectToAction("Signin");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ModelState.AddModelError("", "An error occurred while creating your account. Please try again.");
                 return View(model);

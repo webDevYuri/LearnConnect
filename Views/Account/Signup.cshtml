@@ -41,10 +41,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input asp-for="Phone" class="form-control" id="phoneNumber" placeholder="Phone" />
+                                            <input asp-for="Phone" class="form-control" id="phoneNumber" placeholder="Phone" pattern="^09\d{9}$" title="Must start with 09 and be exactly 11 digits" maxlength="11" oninput="this.value = this.value.replace(/\D/g,'').slice(0,11);" />
                                             <label asp-for="Phone" for="phoneNumber">
                                                 <i class="bi bi-telephone me-1 text-primary"></i> Phone Number
                                             </label>
+                                            <span asp-validation-for="Phone" class="text-danger small"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -92,10 +93,14 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-floating">
-                                            <input asp-for="Birthday" class="form-control" type="date" id="floatingBirthday" placeholder="Birthday" />
+                                            @{
+                                                var maxDob = DateTime.Today.AddYears(-18).ToString("yyyy-MM-dd");
+                                            }
+                                            <input asp-for="Birthday" class="form-control" type="date" id="floatingBirthday" placeholder="Birthday" max="@maxDob" />
                                             <label asp-for="Birthday" for="floatingBirthday">
                                                 <i class="bi bi-calendar-date me-1 text-primary"></i> Birthday
                                             </label>
+                                            <span asp-validation-for="Birthday" class="text-danger small"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -147,3 +152,17 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        $.validator.addMethod("adult", function(value, element) {
+          if (!value) return false;
+          var dob = new Date(value);
+          var today = new Date();
+          var cutoff = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+          return dob <= cutoff;
+        }, "You must be at least 18 years old.");
+
+        $.validator.unobtrusive.adapters.addBool("adult");
+    </script>
+}

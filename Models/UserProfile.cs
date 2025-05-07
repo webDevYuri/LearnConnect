@@ -33,13 +33,13 @@ namespace LearnConnect.Models
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Phone number is required")]
-        [Phone(ErrorMessage = "Invalid phone number")]
         [Display(Name = "Phone Number")]
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "Birthday is required")]
         [DataType(DataType.Date)]
         [Display(Name = "Birthday")]
+
         public DateTime Birthday { get; set; }
 
         [Required(ErrorMessage = "Gender is required")]
