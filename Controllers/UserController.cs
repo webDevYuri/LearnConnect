@@ -158,12 +158,26 @@ namespace LearnConnect.Controllers
             var redirect = RedirectIfNotLoggedIn();
             if (redirect != null) return redirect;
 
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+
             var questions = _context.Questions
                 .Include(q => q.UserProfile)
                 .Include(q => q.Answers)
                     .ThenInclude(a => a.UserProfile)
+                .Include(q => q.Answers)
+                    .ThenInclude(a => a.Upvotes)
                 .OrderByDescending(q => q.CreatedAt)
                 .ToList();
+
+            // Add a flag to each answer to indicate if the current user has upvoted it
+            foreach (var question in questions)
+            {
+                foreach (var answer in question.Answers)
+                {
+                    answer.UpvotedByCurrentUser = answer.Upvotes.Any(u => u.UserProfileId == userProfile.Id);
+                }
+            }
 
             return View(questions);
         }
@@ -773,6 +787,54 @@ namespace LearnConnect.Controllers
             }
 
             return RedirectToAction("Question");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ToggleUpvoteAnswer([FromBody] AnswerUpvote request)
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return Json(new { success = false, message = "User not logged in." });
+            }
+
+            var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+            if (userProfile == null)
+            {
+                return Json(new { success = false, message = "User not found." });
+            }
+
+            var answer = _context.Answers.Include(a => a.Upvotes).FirstOrDefault(a => a.Id == request.AnswerId);
+            if (answer == null)
+            {
+                return Json(new { success = false, message = "Answer not found." });
+            }
+
+            var existingUpvote = answer.Upvotes.FirstOrDefault(u => u.UserProfileId == userProfile.Id);
+
+            if (existingUpvote != null)
+            {
+                // Remove the upvote
+                _context.AnswerUpvotes.Remove(existingUpvote);
+            }
+            else
+            {
+                // Add the upvote
+                _context.AnswerUpvotes.Add(new AnswerUpvote
+                {
+                    AnswerId = request.AnswerId,
+                    UserProfileId = userProfile.Id
+                });
+            }
+
+            _context.SaveChanges();
+
+            // Return the updated upvote count and whether the user has upvoted
+            var isUpvoted = existingUpvote == null; // If no existing upvote, the user just upvoted
+            var upvoteCount = answer.Upvotes.Count;
+
+            return Json(new { success = true, isUpvoted, upvotes = upvoteCount });
         }
     }
 }

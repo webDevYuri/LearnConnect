@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearnConnect")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79dca436f79977b642540d87ecd569cdc1343292")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62d9c09fdade5232e94be63421331ad1cdf1f16f")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearnConnect")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearnConnect")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

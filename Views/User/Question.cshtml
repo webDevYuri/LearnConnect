@@ -70,6 +70,11 @@
             {
                 <div class="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
                     <div class="card-body p-3 p-md-4">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <small class="text-secondary rounded-pill px-3 py-2">
+                                @question.Answers?.Count() Answers
+                            </small>
+                        </div>
                         <div class="row align-items-start mb-2">
                             <div class="col-12 col-md-9 mb-2 mb-md-0">
                                 <h3 class="h5 fw-bold text-dark mb-0 lh-base">@question.Title</h3>
@@ -245,7 +250,6 @@
         </div>
     </div>
 </div>
-
 @foreach (var question in Model)
 {
     <div class="modal fade" id="answerModal-@question.Id" tabindex="-1" aria-labelledby="answerModalLabel-@question.Id" aria-hidden="true">
@@ -305,7 +309,7 @@
                                     <div class="answers-container">
                                         @if (question.Answers != null && question.Answers.Any())
                                         {
-                                            @foreach (var answer in question.Answers)
+                                            @foreach (var answer in question.Answers.OrderByDescending(a => a.Upvotes.Count))
                                             {
                                                 <div class="answer-item mb-2 p-2 rounded-3 bg-light">
                                                     <div class="d-flex">
@@ -331,6 +335,14 @@
                                                             </div>
                                                             <p class="mb-0 small">@answer.Content</p>
                                                         </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-end justify-content-end gap-3">
+                                                        <button class="btn btn-sm p-1 upvote-button d-flex align-items-end gap-1"
+                                                                data-answer-id="@answer.Id"
+                                                                data-is-upvoted="@answer.UpvotedByCurrentUser">
+                                                            <i class="bi @(answer.UpvotedByCurrentUser ? "bi-arrow-up-circle-fill text-primary" : "bi-arrow-up-circle-fill")"></i>
+                                                            <span id="upvote-count-@answer.Id" class="small">@answer.Upvotes.Count</span>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             }
@@ -462,5 +474,39 @@
                 });
             </text>
         }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const upvoteButtons = document.querySelectorAll('.upvote-button');
+
+            upvoteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const answerId = this.getAttribute('data-answer-id');
+                    const isUpvoted = this.getAttribute('data-is-upvoted') === 'true';
+
+                    fetch(`/User/ToggleUpvoteAnswer`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                        },
+                        body: JSON.stringify({ answerId, isUpvoted })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            this.setAttribute('data-is-upvoted', data.isUpvoted);
+                            this.querySelector('i').className = data.isUpvoted
+                                ? 'bi bi-arrow-up-circle-fill text-primary'
+                                : 'bi bi-arrow-up-circle-fill';
+                            document.getElementById(`upvote-count-${answerId}`).textContent = data.upvotes;
+                        } else {
+                            alert('An error occurred. Please try again.');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                });
+            });
+        });
     </script>
 }

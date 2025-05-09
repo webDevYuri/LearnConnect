@@ -4,6 +4,7 @@ using LearnConnect.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearnConnect.Migrations
 {
     [DbContext(typeof(LcDbContext))]
-    partial class LcDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250509065528_AddUpvotesToAnswer")]
+    partial class AddUpvotesToAnswer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,6 +43,9 @@ namespace LearnConnect.Migrations
                     b.Property<int>("QuestionId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Upvotes")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserProfileId")
                         .HasColumnType("int");
 
@@ -50,29 +56,6 @@ namespace LearnConnect.Migrations
                     b.HasIndex("UserProfileId");
 
                     b.ToTable("Answers");
-                });
-
-            modelBuilder.Entity("LearnConnect.Models.AnswerUpvote", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AnswerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserProfileId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AnswerId");
-
-                    b.HasIndex("UserProfileId");
-
-                    b.ToTable("AnswerUpvotes");
                 });
 
             modelBuilder.Entity("LearnConnect.Models.Post", b =>
@@ -269,25 +252,6 @@ namespace LearnConnect.Migrations
                     b.Navigation("UserProfile");
                 });
 
-            modelBuilder.Entity("LearnConnect.Models.AnswerUpvote", b =>
-                {
-                    b.HasOne("LearnConnect.Models.Answer", "Answer")
-                        .WithMany("Upvotes")
-                        .HasForeignKey("AnswerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LearnConnect.Models.UserProfile", "UserProfile")
-                        .WithMany()
-                        .HasForeignKey("UserProfileId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Answer");
-
-                    b.Navigation("UserProfile");
-                });
-
             modelBuilder.Entity("LearnConnect.Models.Post", b =>
                 {
                     b.HasOne("LearnConnect.Models.UserProfile", "UserProfile")
@@ -346,11 +310,6 @@ namespace LearnConnect.Migrations
                         .IsRequired();
 
                     b.Navigation("UserProfile");
-                });
-
-            modelBuilder.Entity("LearnConnect.Models.Answer", b =>
-                {
-                    b.Navigation("Upvotes");
                 });
 
             modelBuilder.Entity("LearnConnect.Models.Post", b =>

@@ -20,6 +20,7 @@ namespace LearnConnect.Data
         public DbSet<PostComment> PostComments { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
+        public DbSet<AnswerUpvote> AnswerUpvotes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -117,6 +118,23 @@ namespace LearnConnect.Data
                 entity.HasOne(e => e.Question)
                     .WithMany(q => q.Answers)
                     .HasForeignKey(e => e.QuestionId)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(e => e.UserProfile)
+                    .WithMany()
+                    .HasForeignKey(e => e.UserProfileId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<AnswerUpvote>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.AnswerId).IsRequired();
+                entity.Property(e => e.UserProfileId).IsRequired();
+
+                entity.HasOne(e => e.Answer)
+                    .WithMany(a => a.Upvotes)
+                    .HasForeignKey(e => e.AnswerId)
                     .OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(e => e.UserProfile)

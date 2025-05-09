@@ -12,7 +12,7 @@ namespace LearnConnect.Models
         public string Content { get; set; }
 
         [Required]
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; }
 
         [Required]
         public int QuestionId { get; set; }
@@ -25,5 +25,10 @@ namespace LearnConnect.Models
 
         [ForeignKey("UserProfileId")]
         public UserProfile UserProfile { get; set; }
+
+        public ICollection<AnswerUpvote> Upvotes { get; set; } = new List<AnswerUpvote>();
+
+        [NotMapped]
+        public bool UpvotedByCurrentUser { get; set; } // Add this property
     }
 }
