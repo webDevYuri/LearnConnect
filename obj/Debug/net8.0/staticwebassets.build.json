@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IM6L8vv5Km2jjXkk1a7kObOdam9XIBvCvgldLrWH1Oc=",
+  "Hash": "5d8Fn6vX+fQ8l+UAg5N+iEt5M5bRdZK9Sdh4Tf4Vap4=",
   "Source": "LearnConnect",
   "BasePath": "_content/LearnConnect",
   "Mode": "Default",
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "dyl3hpwlin",
-      "Integrity": "G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw=",
+      "Fingerprint": "fsy99hb9o3",
+      "Integrity": "oWoz88ZlQG2oPA3djPCWIeVc3SC+kTWimYJ2QgpXrIc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\user_dashboard.css"
@@ -2024,11 +2024,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw=\""
+          "Value": "\"oWoz88ZlQG2oPA3djPCWIeVc3SC+kTWimYJ2QgpXrIc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:33:49 GMT"
+          "Value": "Wed, 07 May 2025 03:12:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2038,12 +2038,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw="
+          "Value": "sha256-oWoz88ZlQG2oPA3djPCWIeVc3SC+kTWimYJ2QgpXrIc="
         }
       ]
     },
     {
-      "Route": "css/user_dashboard.dyl3hpwlin.css",
+      "Route": "css/user_dashboard.fsy99hb9o3.css",
       "AssetFile": "C:\\Users\\Yuri Gonzaga\\Desktop\\Learn Connect\\LearnConnect\\wwwroot\\css\\user_dashboard.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2061,11 +2061,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw=\""
+          "Value": "\"oWoz88ZlQG2oPA3djPCWIeVc3SC+kTWimYJ2QgpXrIc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:33:49 GMT"
+          "Value": "Wed, 07 May 2025 03:12:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2075,7 +2075,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dyl3hpwlin"
+          "Value": "fsy99hb9o3"
         },
         {
           "Name": "label",
@@ -2083,7 +2083,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-G3mkFVvgQAqsjbG3W4lKLp4vRluywNHTGiiLdkWoPlw="
+          "Value": "sha256-oWoz88ZlQG2oPA3djPCWIeVc3SC+kTWimYJ2QgpXrIc="
         }
       ]
     },
@@ -2520,7 +2520,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 02:00:35 GMT"
+          "Value": "Fri, 09 May 2025 06:00:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2557,7 +2557,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 02:00:35 GMT"
+          "Value": "Fri, 09 May 2025 06:00:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2594,7 +2594,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 02:00:35 GMT"
+          "Value": "Fri, 09 May 2025 06:00:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2639,7 +2639,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 07 May 2025 02:00:35 GMT"
+          "Value": "Fri, 09 May 2025 06:00:45 GMT"
         },
         {
           "Name": "Cache-Control",

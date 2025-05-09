@@ -72,7 +72,7 @@
                             </p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <small class="text-muted">
-                                    <i class="bi bi-calendar-event me-1"></i>@article.PublishedAt.ToLocalTime().ToString("MMM d, yyyy")
+                                    <i class="bi bi-calendar-event me-2"></i>@article.PublishedAt.ToLocalTime().ToString("MMM d, yyyy")
                                 </small>
                                 <a href="@article.Url" class="btn btn-sm btn-outline-primary" target="_blank">
                                     Read more <i class="bi bi-arrow-right ms-1"></i>
@@ -82,13 +82,6 @@
                     </div>
                 </div>
             }
-        </div>
-
-        <div class="mt-5 text-center">
-            <p class="text-muted">
-                <i class="bi bi-info-circle me-1"></i>
-                News provided by NewsAPI.org and updated every 30 minutes
-            </p>
         </div>
     }
 </div>

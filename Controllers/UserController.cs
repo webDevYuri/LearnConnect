@@ -158,7 +158,14 @@ namespace LearnConnect.Controllers
             var redirect = RedirectIfNotLoggedIn();
             if (redirect != null) return redirect;
 
-            return View();
+            var questions = _context.Questions
+                .Include(q => q.UserProfile)
+                .Include(q => q.Answers)
+                    .ThenInclude(a => a.UserProfile)
+                .OrderByDescending(q => q.CreatedAt)
+                .ToList();
+
+            return View(questions);
         }
 
         public IActionResult Shop()
@@ -679,5 +686,93 @@ namespace LearnConnect.Controllers
             return RedirectToAction("Dashboard", "User");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AskQuestion(string title, string details, string? tags)
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return RedirectToAction("Signin", "Account");
+            }
+
+            var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+            if (userProfile == null)
+            {
+                return RedirectToAction("Signin", "Account");
+            }
+
+            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(details))
+            {
+                TempData["Error"] = "Title and details are required.";
+                return RedirectToAction("Question");
+            }
+
+            var question = new Question
+            {
+                Title = title,
+                Details = details,
+                Tags = tags,
+                UserProfileId = userProfile.Id,
+                CreatedAt = DateTime.Now
+            };
+
+            try
+            {
+                _context.Questions.Add(question);
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Your question has been posted successfully.";
+            }
+            catch (Exception)
+            {
+                TempData["Error"] = "An error occurred while posting your question. Please try again.";
+            }
+
+            return RedirectToAction("Question");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddAnswer(int questionId, string content)
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return RedirectToAction("Signin", "Account");
+            }
+
+            var userProfile = _context.UserProfiles.FirstOrDefault(u => u.Email == userEmail);
+            if (userProfile == null)
+            {
+                return RedirectToAction("Signin", "Account");
+            }
+
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                TempData["Error"] = "Answer content cannot be empty.";
+                return RedirectToAction("Question");
+            }
+
+            var answer = new Answer
+            {
+                Content = content,
+                QuestionId = questionId,
+                UserProfileId = userProfile.Id,
+                CreatedAt = DateTime.Now
+            };
+
+            try
+            {
+                _context.Answers.Add(answer);
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Your answer has been posted successfully.";
+            }
+            catch (Exception)
+            {
+                TempData["Error"] = "An error occurred while posting your answer. Please try again.";
+            }
+
+            return RedirectToAction("Question");
+        }
     }
 }

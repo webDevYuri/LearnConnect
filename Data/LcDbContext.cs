@@ -18,6 +18,8 @@ namespace LearnConnect.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostLike> PostLikes { get; set; }
         public DbSet<PostComment> PostComments { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -81,6 +83,40 @@ namespace LearnConnect.Data
                 entity.HasOne(e => e.Post)
                     .WithMany(p => p.Comments)
                     .HasForeignKey(e => e.PostId)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(e => e.UserProfile)
+                    .WithMany()
+                    .HasForeignKey(e => e.UserProfileId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<Question>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Title).IsRequired().HasMaxLength(200);
+                entity.Property(e => e.Details).IsRequired();
+                entity.Property(e => e.Tags).HasMaxLength(200);
+                entity.Property(e => e.CreatedAt).IsRequired();
+                entity.Property(e => e.UserProfileId).IsRequired();
+
+                entity.HasOne(e => e.UserProfile)
+                    .WithMany()
+                    .HasForeignKey(e => e.UserProfileId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<Answer>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Content).IsRequired();
+                entity.Property(e => e.CreatedAt).IsRequired();
+                entity.Property(e => e.QuestionId).IsRequired();
+                entity.Property(e => e.UserProfileId).IsRequired();
+
+                entity.HasOne(e => e.Question)
+                    .WithMany(q => q.Answers)
+                    .HasForeignKey(e => e.QuestionId)
                     .OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(e => e.UserProfile)
